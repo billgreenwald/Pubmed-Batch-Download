@@ -12,7 +12,7 @@ Clone the directory to the desired location, then run
 
 Use the program via 
 ```
-"ruby pubmedid2pdf.rb [comma separated list of pubmed IDs]"
+ruby pubmedid2pdf.rb [comma separated list of pubmed IDs]
 ```
 Each run will download the enumerated files to folder titled "PDF" inside the application directory, with each pdf named the PMID correpsonding to the article.  Articles already within the PDF folder will not be downloaded again.
 
