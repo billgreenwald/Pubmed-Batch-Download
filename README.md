@@ -1,4 +1,4 @@
-# Pubmed-Batch-Download
+# Pubmed Batch Download
 Batch download articles based on PMID (Pubmed ID)
 
 ##Installation and Set Up
