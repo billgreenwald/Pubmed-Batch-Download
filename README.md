@@ -16,9 +16,8 @@ ruby pubmedid2pdf.rb [comma separated list of pubmed IDs]
 ```
 Each run will download the enumerated files to folder titled "PDF" inside the application directory, with each pdf named the PMID correpsonding to the article.  Articles already within the PDF folder will not be downloaded again.
 
-*Example:*
+**Example:**
 
-Running
 ```
 ruby pubmedid2pdf.rb 123,124,125,23923,111
 ```
