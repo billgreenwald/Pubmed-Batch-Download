@@ -1,14 +1,14 @@
 # Pubmed-Batch-Download
-##Batch download articles based on PMID (Pubmed ID)
+Batch download articles based on PMID (Pubmed ID)
 
-###Installation and Set Up
+##Installation and Set Up
 
 Clone the directory to the desired location, then run
 ```
 ./setup.sh
 ```
 
-###Program Usage
+##Program Usage
 
 Use the program via 
 ```
@@ -25,7 +25,7 @@ ruby pubmedid2pdf.rb 123,124,125,23923,111
 will place the files 123.pdf, 124.pdf, 125.pdf, 23923.pdf, and 111.pdf inside of the PDF folder, assuming all were found
 
 
-####Description of included files:
+##Description of included files:
 
 **pdfetch.rb**:  Ruby script that crawls the web using mechanize and downloads the pdf from the appropriate source
 
