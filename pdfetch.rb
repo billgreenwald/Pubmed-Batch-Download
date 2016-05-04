@@ -23,7 +23,7 @@
 ## Further modified and updated to work with Ruby 2.0 by Bill Greenwald
 ## Also modified and updated to work with websites using iFrames
 ##
-
+require 'rubygems'
 require 'camping'
 require 'mechanize'
 
