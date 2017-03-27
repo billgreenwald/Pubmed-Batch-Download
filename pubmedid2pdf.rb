@@ -34,7 +34,7 @@
 
 require 'optparse'
 require 'rubygems'
-require './pdfetch.rb'
+require_relative './pdfetch.rb'
 
 #pmid = 19508715
 pubmeds = ARGV[0]
