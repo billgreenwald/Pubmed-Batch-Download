@@ -25,7 +25,7 @@ python fetch_pdfs.py [-pmids or -pmf] [optional arguments]
 ```
 
 **Arguments**:
-The program has the following arguments.  It must be run with *either* -pmids or -pmf, not both.  The help page can be displayed by running the program with -h, or with no arguments.
+The program has the following arguments.  It must be run with *either* -pmids or -pmf, *not both*.  The help page can be displayed by running the program with -h, or with no arguments.
 ```
 -pmids: A comma separated list of pmids to download
 -pmf: A file with 1 or 2 columns of pmids and file names to download.  See below for example
@@ -45,7 +45,7 @@ PMID3
 Optionally, this file can have a second column, which is what to name the files when you download them.  For example, if I wanted to download the article with pmid 123 and name it "Article_1.pdf" and pmid 4456 with name "Some_Other_Article.pdf", I would use the following pmf file (note, the columns are tab separated)
 ```
 123 Article_1
-4456  Article_2
+4456  Some_Other_Article
 ```
 
 **Example script usage:**
