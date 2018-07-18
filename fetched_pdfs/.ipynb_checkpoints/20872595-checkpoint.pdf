@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en" class="pb-page"  data-request-id="c803067a-6bec-4ff8-8f6e-b557930d054e"  
+><head data-pb-dropzone="head"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="pbContext" content=";issue:issue:doi\:10.1002/art.v62%3A9;page:string:Article/Chapter View;subPage:string:RC PDF;website:website:pericles;journal:journal:15290131;wgroup:string:Publication Websites;pageGroup:string:Publication Pages;article:article:doi\:10.1002/art.27584"/><meta data-pb-head="head-widgets-start"/>
+<script type="text/javascript">var $DoubleClickZone = "arth-rheum_art";var $DoubleClickSite =  "wly.rheumat_000108";</script><script>digitalData = {"site":{"ip":"169.228.63.175","environment":"LIVE","website":"onlinelibrary.wiley.com"},"page":{"pageGroup":"Publication Pages","page":"Article/Chapter View","subPage":"RC PDF","title":"title","errorCode":200},"identities":[{"type":"InstitutionUser","uuid":"452bfca5-55a6-4056-aa10-02e2f51c6b8d","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"EAL00000153272"}]},{"type":"InstitutionUser","uuid":"b2f03c7d-def5-4d65-8e7e-4c3ca2f4b975","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"TEMPBFNCP_1986-1998"}]},{"type":"InstitutionUser","uuid":"b2bc9682-6572-4b2f-999a-612ab0976616","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"ALLWILEYJOURNALS"}]},{"type":"RegionUser","uuid":"3c5060a1-6620-438f-862b-902a4d4cd4ac"},{"type":"InstitutionUser","uuid":"58b47982-b65b-4679-a7ae-3d3523181acb","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"TEMPMPLICENSE"}]},{"type":"UserAgentUser","uuid":"8cd4b3b0-e820-4481-a46e-4da9e270b8ca"},{"type":"InstitutionUser","uuid":"596cc767-d784-4dd2-b3d5-91243c5885d1","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"TEMPBFJPEN_1977-1998"}]},{"type":"InstitutionUser","uuid":"48f0af6d-734f-4fe2-a806-c204ec13f842","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"EAL00000057078"}]},{"type":"RegionUser","uuid":"18971d33-e3f1-4194-be84-47668d10cf64"},{"type":"BasicGroup","uuid":"197fe835-5b5f-4f4e-b8e9-a74d68491a84"},{"type":"InstitutionUser","uuid":"de663352-6eac-4593-a2aa-17dd26348b96","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"EAL00000122068"}]},{"type":"InstitutionUser","uuid":"1b19994e-f6cd-4a6e-b151-a166eb757a02","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"EALEM00084"}]},{"type":"InstitutionUser","uuid":"541e5a9f-34fa-4b62-b559-15f3fe9387fd","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"EAL00000040348"}]},{"type":"InstitutionUser","uuid":"d14f747e-87bc-4c54-8387-41a0cd7ed4ce","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"EAL0000187"}]},{"type":"InstitutionUser","uuid":"dce09c07-90e2-4fec-953e-066e1966ad02","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"EAL00000056347"}]},{"type":"InstitutionUser","uuid":"dd1dd388-b4b8-400a-943a-57540647b109","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"CALIFO401S"}]},{"type":"InstitutionUser","uuid":"caf426c7-9288-4ab4-bdd4-77a392b2d2f6","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"EAL00000056320"}]},{"type":"InstitutionUser","uuid":"02098bbe-21cc-4dab-9a9f-e4b8f41b5472","customerRecords":[{"customerDomain":"ALM-CU","customerNumber":"PARENTCDLC"}]}],"publication":{"item":{"title":"2010 Rheumatoid arthritis classification criteria: An American College of Rheumatology/European League Against Rheumatism collaborative initiative\u003clink href\u003d\u0027#fn1\u0027\u003e\u003c/link\u003e","doi":"10.1002/art.27584","access":"free","earliestDate":"2010-08-10","formats":["Abstract","Full text","PDF"],"topics":[{"taxonomyUri":"global-subject-codes","topicLabel":"General \u0026 Internal Medicine","topicUri":"mda0"},{"taxonomyUri":"global-subject-codes","topicLabel":"Physical Rehabilitation","topicUri":"mdt1"},{"taxonomyUri":"global-subject-codes","topicLabel":"MEDICAL SCIENCE","topicUri":"md"},{"taxonomyUri":"global-subject-codes","topicLabel":"Anesthesia \u0026 Pain Management","topicUri":"md30"},{"taxonomyUri":"global-subject-codes","topicLabel":"General Practice / Family Practice","topicUri":"mda2"},{"taxonomyUri":"global-subject-codes","topicLabel":"Pain Medicine","topicUri":"md32"},{"taxonomyUri":"global-subject-codes","topicLabel":"Basic Medical Sciences","topicUri":"md10"},{"taxonomyUri":"global-subject-codes","topicLabel":"Rheumatology","topicUri":"mdr0"},{"taxonomyUri":"global-subject-codes","topicLabel":"Immunology","topicUri":"md17"},{"taxonomyUri":"global-subject-codes","topicLabel":"Allergy \u0026 Clinical Immunology","topicUri":"md20"},{"taxonomyUri":"global-subject-codes","topicLabel":"Clinical Immunology","topicUri":"md22"},{"taxonomyUri":"global-subject-codes","topicLabel":"Sports Medicine","topicUri":"mdt0"},{"taxonomyUri":"fundref-funders","topicLabel":"European League Against Rheumatism","topicUri":"501100008741"}]},"group":{"doi":"10.1002/art.v62:9","access":"free","volume":"62","issue":"9","coverDate":"2010-09-01","topics":[{"taxonomyUri":"global-subject-codes","topicLabel":"General \u0026 Internal Medicine","topicUri":"mda0"},{"taxonomyUri":"global-subject-codes","topicLabel":"Physical Rehabilitation","topicUri":"mdt1"},{"taxonomyUri":"global-subject-codes","topicLabel":"MEDICAL SCIENCE","topicUri":"md"},{"taxonomyUri":"global-subject-codes","topicLabel":"Anesthesia \u0026 Pain Management","topicUri":"md30"},{"taxonomyUri":"global-subject-codes","topicLabel":"General Practice / Family Practice","topicUri":"mda2"},{"taxonomyUri":"global-subject-codes","topicLabel":"Pain Medicine","topicUri":"md32"},{"taxonomyUri":"global-subject-codes","topicLabel":"Basic Medical Sciences","topicUri":"md10"},{"taxonomyUri":"global-subject-codes","topicLabel":"Rheumatology","topicUri":"mdr0"},{"taxonomyUri":"global-subject-codes","topicLabel":"Immunology","topicUri":"md17"},{"taxonomyUri":"global-subject-codes","topicLabel":"Allergy \u0026 Clinical Immunology","topicUri":"md20"},{"taxonomyUri":"global-subject-codes","topicLabel":"Clinical Immunology","topicUri":"md22"},{"taxonomyUri":"global-subject-codes","topicLabel":"Sports Medicine","topicUri":"mdt0"}]},"series":{"title":"Arthritis \u0026amp; Rheumatism","doi":"10.1002/(ISSN)1529-0131","access":"full","code":"15290131","issn":"0004-3591","eissn":"1529-0131","topics":[{"taxonomyUri":"gpt-zonename","topicLabel":"arth-rheum_ART","topicUri":"arth-rheum_art"},{"taxonomyUri":"gpt-sitename","topicLabel":"wly.rheumat_000108","topicUri":"wly.rheumat_000108"},{"taxonomyUri":"global-subject-codes","topicLabel":"General \u0026 Internal Medicine","topicUri":"mda0"},{"taxonomyUri":"global-subject-codes","topicLabel":"Physical Rehabilitation","topicUri":"mdt1"},{"taxonomyUri":"global-subject-codes","topicLabel":"MEDICAL SCIENCE","topicUri":"md"},{"taxonomyUri":"global-subject-codes","topicLabel":"Anesthesia \u0026 Pain Management","topicUri":"md30"},{"taxonomyUri":"global-subject-codes","topicLabel":"General Practice / Family Practice","topicUri":"mda2"},{"taxonomyUri":"global-subject-codes","topicLabel":"Pain Medicine","topicUri":"md32"},{"taxonomyUri":"global-subject-codes","topicLabel":"Basic Medical Sciences","topicUri":"md10"},{"taxonomyUri":"global-subject-codes","topicLabel":"Rheumatology","topicUri":"mdr0"},{"taxonomyUri":"global-subject-codes","topicLabel":"Immunology","topicUri":"md17"},{"taxonomyUri":"global-subject-codes","topicLabel":"Allergy \u0026 Clinical Immunology","topicUri":"md20"},{"taxonomyUri":"global-subject-codes","topicLabel":"Clinical Immunology","topicUri":"md22"},{"taxonomyUri":"global-subject-codes","topicLabel":"Sports Medicine","topicUri":"mdt0"}]}}}</script>
+
+
+
+
+
+
+<meta charset="UTF-8">
+
+
+
+
+<meta name="robots" content="noarchive,noindex,nofollow"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=10, user-scalable=1">
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    <meta name="citation_doi" content="10.1002/art.27584"/>
+
+    <meta name="dc.identifier" content="10.1002/art.27584"/>
+
+
+
+
+<meta name="citation_journal_title" content="Arthritis &amp; Rheumatism">
+<meta name="citation_title" content="2010 Rheumatoid arthritis classification criteria: An American College of Rheumatology/European League Against Rheumatism collaborative initiative">
+<meta name="citation_volume" content="62">
+<meta name="citation_issue" content="9">
+<meta name="citation_firstpage" content="2569">
+<meta name="citation_lastpage" content="2581">
+<meta name="citation_online_date" content="10 August 2010">
+<meta name="citation_issn" content="1529-0131">
+<meta name="citation_language" content="en">
+<meta name="citation_author" content="Daniel Aletaha">
+<meta name="citation_author_institution" content="Medical University of Vienna, Vienna, Austria">
+<meta name="citation_author" content="Tuhina Neogi">
+<meta name="citation_author_institution" content="Boston University School of Medicine, Boston, Massachusetts">
+<meta name="citation_author" content="Alan J. Silman">
+<meta name="citation_author_institution" content="Arthritis Research UK, Chesterfield, UK">
+<meta name="citation_author" content="Julia Funovits">
+<meta name="citation_author_institution" content="Medical University of Vienna, Vienna, Austria">
+<meta name="citation_author" content="David T. Felson">
+<meta name="citation_author_institution" content="Boston University School of Medicine, Boston, Massachusetts">
+<meta name="citation_author" content="Clifton O. Bingham">
+<meta name="citation_author_institution" content="Johns Hopkins University, Baltimore, Maryland">
+<meta name="citation_author" content="Neal S. Birnbaum">
+<meta name="citation_author_institution" content="California Pacific Medical Center and University of California, San Francisco">
+<meta name="citation_author" content="Gerd R. Burmester">
+<meta name="citation_author_institution" content="Charit&#xe9; Hospital&#x2013;University Medicine Berlin, Free University and Humboldt University Berlin, Berlin, Germany">
+<meta name="citation_author" content="Vivian P. Bykerk">
+<meta name="citation_author_institution" content="Mount Sinai Hospital and University of Toronto, Toronto, Ontario, Canada">
+<meta name="citation_author" content="Marc D. Cohen">
+<meta name="citation_author_institution" content="National Jewish Medical and Research Center, Denver, Colorado">
+<meta name="citation_author" content="Bernard Combe">
+<meta name="citation_author_institution" content="Lapeyronie Hospital and Montpellier I University, Montpellier, France">
+<meta name="citation_author" content="Karen H. Costenbader">
+<meta name="citation_author_institution" content="Brigham and Women's Hospital and Harvard University, Boston, Massachusetts">
+<meta name="citation_author" content="Maxime Dougados">
+<meta name="citation_author_institution" content="Cochin Hospital, Assistance Publique H&#xf4;pitaux de Paris, and Paris&#x2010;Descartes University, Paris, France">
+<meta name="citation_author" content="Paul Emery">
+<meta name="citation_author_institution" content="University of Leeds and NIHR Leeds Musculoskeletal Biomedical Research Unit, Leeds, UK">
+<meta name="citation_author" content="Gianfranco Ferraccioli">
+<meta name="citation_author_institution" content="School of Medicine, Catholic University of the Sacred Heart, Rome, Italy">
+<meta name="citation_author" content="Johanna M. W. Hazes">
+<meta name="citation_author_institution" content="Erasmus Medical Center, University Medical Center Rotterdam, and University of Rotterdam, Rotterdam, The Netherlands">
+<meta name="citation_author" content="Kathryn Hobbs">
+<meta name="citation_author_institution" content="University of Colorado School of Medicine, Denver">
+<meta name="citation_author" content="Tom W. J. Huizinga">
+<meta name="citation_author_institution" content="Leiden University Medical Centre, Leiden, The Netherlands">
+<meta name="citation_author" content="Arthur Kavanaugh">
+<meta name="citation_author_institution" content="University of California, San Diego">
+<meta name="citation_author" content="Jonathan Kay">
+<meta name="citation_author_institution" content="UMassMemorial Medical Center and University of Massachusetts Medical School, Worcester">
+<meta name="citation_author" content="Tore K. Kvien">
+<meta name="citation_author_institution" content="Diakonhjemmet Hospital, Oslo, Norway">
+<meta name="citation_author" content="Timothy Laing">
+<meta name="citation_author_institution" content="University of Michigan, Ann Arbor">
+<meta name="citation_author" content="Philip Mease">
+<meta name="citation_author_institution" content="Swedish Medical Center and University of Washington, Seattle">
+<meta name="citation_author" content="Henri A. M&#xe9;nard">
+<meta name="citation_author_institution" content="McGill University Health Centre and McGill University, Montreal, Quebec, Canada">
+<meta name="citation_author" content="Larry W. Moreland">
+<meta name="citation_author_institution" content="University of Pittsburgh, Pittsburgh, Pennsylvania">
+<meta name="citation_author" content="Raymond L. Naden">
+<meta name="citation_author_institution" content="Ministry of Health, Auckland, New Zealand">
+<meta name="citation_author" content="Theodore Pincus">
+<meta name="citation_author_institution" content="New York University Hospital for Joint Diseases, New York, New York">
+<meta name="citation_author" content="Josef S. Smolen">
+<meta name="citation_author_institution" content="Medical University of Vienna, Vienna, Austria">
+<meta name="citation_author" content="Ewa Stanislawska&#x2010;Biernat">
+<meta name="citation_author_institution" content="Institute of Rheumatology, Warsaw, Poland">
+<meta name="citation_author" content="Deborah Symmons">
+<meta name="citation_author_institution" content="University of Manchester, Manchester, UK">
+<meta name="citation_author" content="Paul P. Tak">
+<meta name="citation_author_institution" content="Academic Medical Center, University of Amsterdam, Amsterdam, The Netherlands">
+<meta name="citation_author" content="Katherine S. Upchurch">
+<meta name="citation_author_institution" content="UMassMemorial Medical Center and University of Massachusetts Medical School, Worcester">
+<meta name="citation_author" content="Ji&#x159;&#xed; Vencovsk&#xfd;">
+<meta name="citation_author_institution" content="Institute of Rheumatology, Prague, Czech Republic">
+<meta name="citation_author" content="Frederick Wolfe">
+<meta name="citation_author_institution" content="National Data Bank for Rheumatic Diseases and University of Kansas, Wichita">
+<meta name="citation_author" content="Gillian Hawker">
+<meta name="citation_author_institution" content="Women's College Hospital and University of Toronto, Toronto, Ontario, Canada">
+<meta name="citation_abstract_html_url" content="https://onlinelibrary.wiley.com/doi/abs/10.1002/art.27584">
+<meta name="citation_fulltext_html_url" content="https://onlinelibrary.wiley.com/doi/full/10.1002/art.27584">
+<meta name="citation_pdf_url" content="https://onlinelibrary.wiley.com/doi/pdf/10.1002/art.27584">
+<meta name="citation_publisher" content="Wiley-Blackwell">
+<meta name="article_references" content="Aletaha, D. , Neogi, T. , Silman, A. J., Funovits, J. , Felson, D. T., Bingham, C. O., Birnbaum, N. S., Burmester, G. R., Bykerk, V. P., Cohen, M. D., Combe, B. , Costenbader, K. H., Dougados, M. , Emery, P. , Ferraccioli, G. , Hazes, J. M., Hobbs, K. , Huizinga, T. W., Kavanaugh, A. , Kay, J. , Kvien, T. K., Laing, T. , Mease, P. , M&#xe9;nard, H. A., Moreland, L. W., Naden, R. L., Pincus, T. , Smolen, J. S., Stanislawska&#x2010;Biernat, E. , Symmons, D. , Tak, P. P., Upchurch, K. S., Vencovsk&#xfd;, J. , Wolfe, F.  and Hawker, G.  (2010), 2010 Rheumatoid arthritis classification criteria: An American College of Rheumatology/European League Against Rheumatism collaborative initiative. Arthritis &amp; Rheumatism, 62: 2569-2581. doi:10.1002/art.27584">
+<meta name="epdf_available" content="true">
+
+
+<title>2010 Rheumatoid arthritis classification criteria: An American College of Rheumatology/European League Against Rheumatism collaborative initiative - Aletaha - 2010 - Arthritis &amp;amp; Rheumatism - Wiley Online Library</title>
+
+
+
+
+<meta data-pb-head="head-widgets-end"/>
+
+<link rel="stylesheet" type="text/css" href="/wro/ezl3~product.css"><link rel="stylesheet" type="text/css" href="/products/pericles/releasedAssets/css/build.css"><link rel="stylesheet" type="text/css" href="/pb/css/t-1-v0/default.css" id="pb-css" data-pb-css-id="t-1-v0/default.css"/>
+
+
+
+
+<meta name="referrer" content="origin-when-cross-origin"/>
+
+<link rel="stylesheet" type="text/css" href="/pb-assets/hub-assets/pericles/hub-1529318462147.css">
+<link rel="stylesheet" type="text/css" href="/pb-assets/css/iucr-1510734465460.css">
+<link rel="stylesheet" type="text/css" href="/pb-assets/css/readcube-1510565373110.css">
+<link rel="stylesheet" type="text/css" href="/pb-assets/css/dr-overrides-1525191732107.css">
+<!-- link rel="stylesheet" type="text/css" href="/pb-assets/css/temporary-1525702334993.css" -->
+
+<style>
+/* TEMPORARY CSS HACK TO FIX LIT-220590 */
+.icon-icon-Rss::before {
+    content: "\e629";
+}
+
+/* TEMPORARY CSS TO FIX ALIGNMENT OF TOP AD IN RIGHT RAIL */
+.publication-cover-info {
+    margin-bottom: 20px;
+}
+
+.article-row-right > .pb-ad {
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+/* TEMPORARY HACK FOR PERICLES-6763 */
+.table-of-content .issue-item h2 {
+    font-size: 16px;
+}
+
+.table-of-content .issue-item h2 a.issue-item__title {
+    display: inline;
+}
+
+/* TEMPORARY CSS FOR PERICLES-7445 */
+
+input.saml__consent__yes {
+    background: #005274;
+    font-size: 12px;
+    font-size: .75rem;
+    padding: 12px 20px;
+    border-radius: 0;
+    margin-top: 20px;
+    margin-right: 10px;
+    width: 100px;
+}
+
+input.saml__consent__yes:hover {
+    background: #003951;
+}
+
+/* HACK TO CHANGE LABEL IN LOGIN FORM */
+.login-popup .login-form label[for="login"]:before {
+    content: "Email or Customer ID";
+    color: black;
+}
+
+.login-popup .login-form label[for="login"] {
+    color: white;
+}
+
+/* PERICLES-2166: Site-wide maintenance message */
+
+.admin-message {
+    background-color: #005274;
+    color: white;
+}
+
+/* TEMPORARY CSS FOR STAY-CONNECTED SOCIAL MEDIA ICONS */
+.stay-connected ul  {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.stay-connected i {
+    margin-right: 10px;
+    font-size: 25px;
+    line-height: 55px;
+}
+
+.stay-connected i.icon-hubs-rg-icon,
+.stay-connected i.icon-hubs-soundcloud-icon {
+    font-size: 41px;
+}
+
+.stay-connected .icon-hubs-pinterest-icon:before {
+    color: white;
+}
+
+.stay-connected .icon-hubs-pinterest-icon {
+    background-color: #BD081C;
+    border: solid #BD081C;
+    border-width: 8px;
+}
+
+/* PERICLES-5833: TEMPORARY CSS TO ADJUST POSITION OF ADS */
+.article-mpu-bottom .pb-ad {
+    margin: 0 0 0 195px;
+}
+
+
+.article-mpu-top .pb-ad {
+    padding-top: 20px;
+    margin: 0 0 -35px 0;
+}
+
+.banner-wrapper .pb-ad {
+    padding: 0;
+}
+
+/* TEMPORARY CSS FOR THE SOCIETY MEMBER LOGIN PAGE */
+.society-member-login .widget__header,
+.society-member-login .show-registration,
+.society-member-login .show-request-reset-password {
+    display: none;
+}
+
+.society-member-login .login-form {
+    margin-top: 20px;
+}
+
+.society-member-login .widget__body .input-group+.input-group {
+    margin-top: 15px;
+}
+
+
+/* TEMPORARY CSS TO HIDE FPI IN TOP CONTENT ACTION WIDGET */
+.top-content .firstPageImage {
+	display: none;
+}
+
+/* PERICLES-5518: TEMPORARY CSS TO FIX ANCHOR TAG OFFSET ON CUSTOM PAGES */
+.custom-page-hub .main-content :target:before {
+	content: "";
+	display: block;
+	height: 205px;
+	margin: -205px 0 0;
+}
+
+.custom-page-pericles .main-content :target:before {
+	content: "";
+	display: block;
+	height: 140px;
+	margin: -140px 0 0;
+}
+
+/* PERICLES-4777: TEMPORARY CSS TO HIDE OPTIONS IN THE SIDEBAR ON MRW PAGES */
+.journal-resources li#TableofContents, 
+.journal-resources li#Topics,
+.journal-resources li#ArticleTitlesAZ {
+	display: none;
+}
+
+/* TEMPORARY FIX FOR UNWANTED MARGIN BELOW COVER IMAGES ON BOOK SERIES PAGES */
+.remove-margin .cover-image {
+	margin: 0;
+}
+
+/* TEMPORARY STYLE TO HIDE NUMBER OF DOWNLOADS ON ARTICLE PAGES */
+.info-tab-wrapper .metrics .section__body div:first-child {
+	display: none;
+}
+
+/* TEMPORARY FIX TO MAKE IT POSSIBLE TO EDIT RICH TEXT WIDGETS IN SLIDESHOWS */
+.bs .modal-backdrop {
+	display: none;	
+}
+
+/* TEMPORARY FIX FOR MENU POSITION */
+.hubpage-menu nav {
+	padding-bottom: 0;
+	position: relative;
+}
+
+/* TEMPORARY FOR MARGIN AROUND ADS */
+.advert.advert-leaderboard {
+	margin: 15px 0;
+}
+
+.banner-wrapper {
+	box-shadow: none;
+}
+
+/* TEMPORARY TO FIX OVERFLOW FOR P IN JOURNAL-NEWS SLIDESHOWS */
+.journal-news .slide-item p {
+	overflow: unset;
+}
+
+/* EDITOR HIGHLIGHTS CSS */
+div.ancillary-content.relateditem div.content {
+	height: 10em;
+}
+div.ancillary-content.listitem div.content {
+	height: 4em;
+}
+
+
+
+
+</style>
+
+<!-- The Adobe DTM script. Must come after the digitalData object -->
+<script src="//assets.adobedtm.com/6e626c9ec247e474f6b98eb15a79a185cf7e26a5/satelliteLib-c1ac050bbdc647f13a62578e71f0d817f8a6cbb5.js"></script>
+
+<!-- Google Search Console verification -->
+<meta name="google-site-verification" content="ffz4i4DxIJCdGpRXe0XN6KG6o4FYI-nnFW9I_dg8piM" />
+
+<!-- KRUX Implementation-->
+<script class="kxct" data-id="JMOONjNh" data-timing="async" data-version="1.9" type="text/javascript" xml:space="preserve">
+
+	window.Krux || (( Krux = function () {
+		Krux.q.push ( arguments )
+	}).q = []);
+
+	( function () {
+		var k , m , s , src;
+		k = document.createElement ( 'script' );
+		k.type 	= 'text/javascript';
+		k.async = true;
+		src = ( m = location.href.match ( /\bkxsrc=([^&]+)/ )) && decodeURIComponent ( m [ 1 ]);
+		k.src = /^https?:\/\/([a-z0-9_\-\.]+\.)?krxd\.net(:\d{1,5})?\//i.test ( src ) ? src : src === 'disable' ? '' : ( location.protocol === 'https:'?'https:':'http:' ) + '//cdn.krxd.net/controltag?confid=JMOONjNh';
+		s = document.getElementsByTagName ( 'script' ) [ 0 ];
+		s.parentNode.insertBefore ( k , s );
+	} ());
+</script>
+	
+<!-- KRUX Implementation cont'd -->
+<script type="text/javascript">
+	window.Krux || (( Krux = function () {
+		Krux.q.push ( arguments );
+	}).q = []);
+
+	( function () {
+		function retrieve ( n ) {
+			var m , k = 'kx' + n;
+			if ( window.localStorage ) {
+				return window.localStorage [ k ] || '';
+			} else if ( navigator.cookieEnabled ) {
+				m = document.cookie.match ( k + '=([^;]*)' );
+				return ( m && unescape ( m [ 1 ])) || '';
+			} else {
+				return '';
+			}
+		}
+
+		Krux.user = retrieve ( 'user' );
+		Krux.segments = retrieve ( 'segs' ) && retrieve ( 'segs' ).split ( ',' ) || [];
+	}) ();
+</script>
+
+<!-- Grapeshot Implementation -->
+<script>
+	var gs_channels = 'default';
+</script>
+
+<script src="//wiley.grapeshot.co.uk/main/channels.cgi?url=https://onlinelibrary.wiley.com/doi/epdf/10.1002/art.27584" async></script>
+
+<!-- DoubleClick Implementation -->
+<script type="text/javascript">
+	var $WileyGooglePublisherID = 2215;
+
+	switch("journal_23265205") {
+		case "journal_23798068":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19343663":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19388969":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19349262":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_25725637":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19343647":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19348533":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_25725602":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19342616":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_1934340x":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_21604762":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19483430":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19349300":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19348258":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_1934368x":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_21612617":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19348576":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19349289":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_19348290":
+			var $DoubleClickSite = "wly.gn.life.sci_000061";
+			break;
+		case "journal_15518833":
+			var $DoubleClickSite = "wly.civ.eng.con_000034";
+			break;
+		case "journal_25738461":
+			var $DoubleClickSite = "wly.cell.m.bio_000030";
+			break;
+		case "journal_15372197":
+			var $DoubleClickSite = "wly.plant.sci_000100";
+			break;
+		case "journal_18832148":
+			var $DoubleClickSite = "wly.cardio.dis_000029";
+			break;
+		case "journal_21576580":
+			var $DoubleClickSite = "wly.cell.m.bio_000030";
+			break;
+		case "journal_15494918":
+			var $DoubleClickSite = "wly.cell.m.bio_000030";
+			break;
+		case "journal_24750360":
+			var $DoubleClickSite = "wly.geriat.ed_000067";
+			break;
+		case "journal_18780369":
+			var $DoubleClickSite = "wly.nursing_000088";
+			break;
+		case "journal_19412444":
+			var $DoubleClickSite = "wly.nutrition_000089";
+			break;
+		case "journal_17582652":
+			var $DoubleClickSite = "wly.inf.dis.mi_000072";
+			break;
+		case "journal_25721143":
+			var $DoubleClickSite = "wly.sport.med_000112";
+			break;
+		case "journal_15518701":
+			var $DoubleClickSite = "wly.civ.eng.con_000034";
+			break;
+		case "journal_14781239":
+			var $DoubleClickSite = "wly.gastro.hep_000059";
+			break;
+		case "journal_19383673":
+			var $DoubleClickSite = "wly.basic.med_000026";
+			break;
+		case "journal_24758817":
+			var $DoubleClickSite = "wly.cell.m.bio_000030";
+			break;
+		case "journal_24725390":
+			var $DoubleClickSite = "wly.emerge.med_000050";
+	};
+
+	switch("journal_23265205") {
+		case "journal_23798068":
+			var $DoubleClickZone = "cp-plant-bio_CPPB";
+			break;
+		case "journal_19343663":
+			var $DoubleClickZone = "cp-protein-sci_CPPS";
+			break;
+		case "journal_19388969":
+			var $DoubleClickZone = "cp-stem-cell-bio_CPSC";
+			break;
+		case "journal_19349262":
+			var $DoubleClickZone = "cp-toxicology_CPTX";
+			break;
+		case "journal_25725637":
+			var $DoubleClickZone = "cp-mri_CPMR";
+			break;
+		case "journal_19343647":
+			var $DoubleClickZone = "cp-molecular-bio_CPMB";
+			break;
+		case "jorunal_19348533":
+			var $DoubleClickZone = "cp-microbio_CPMI";
+			break;
+		case "journal_25725602":
+			var $DoubleClickZone = "cp-food-a-chem_CPFA";
+			break;
+		case "journal_19342616":
+			var $DoubleClickZone = "cp-cell-bio_CPCL";
+			break;
+		case "journal_1934340x":
+			var $DoubleClickZone = "cp-bioinfo_CPBI";
+			break;
+		case "journal_21604762":
+			var $DoubleClickZone = "cp-chem-bio_CPCB";
+			break;
+		case "journal_19483430":
+			var $DoubleClickZone = "cp-ess-lab-tech_CPLT";
+			break;
+		case "journal_19349300":
+			var $DoubleClickZone = "cp-cytometry_CPCY";
+			break;
+		case "journal_19348258":
+			var $DoubleClickZone = "cp-human-gen_CPHG";
+			break;
+		case "journal_1934368x":
+			var $DoubleClickZone = "cp-immun_CPIM";
+			break;
+		case "journal_21612617":
+			var $DoubleClickZone = "cp-mouse-b_CPMO";
+			break;
+		case "journal_19348576":
+			var $DoubleClickZone = "cp-neurosci_CPNE";
+			break;
+		case "journal_19349289":
+			var $DoubleClickZone = "cp-n-acid-chem_CPNA";
+			break;
+		case "journal_19348290":
+			var $DoubleClickZone = "cp-pharma_CPPH";
+			break;
+		case "journal_15518833":
+			var $DoubleClickZone = "jrnl-american-water-works-assc_AWWA";
+			break;
+		case "journal_25738461":
+			var $DoubleClickZone = "adv-in-cell-and-gene_ACG2";
+			break;
+		case "journal_15372197":
+			var $DoubleClickZone = "am-j-o-botany_AJB2";
+			break;
+		case "journal_18832148":
+			var $DoubleClickZone = "j-o-arrhythmia_JOA3";
+			break;
+		case "journal_21576580":
+			var $DoubleClickZone = "stem-cells-trans-medicine_STC3";
+			break;
+		case "journal_15494918":
+			var $DoubleClickZone = "stem-cells_STEM";
+			break;
+		case "journal_24750360":
+			var $DoubleClickZone = "aging-medicine_AGM2";
+			break;
+		case "journal_18780369":
+			var $DoubleClickZone = "aorn_AORN";
+			break;
+		case "journal_19412444":
+			var $DoubleClickZone = "j-o-parent-and-enteral-nutrition_JPEN";
+			break;
+		case "journal_17582652":
+			var $DoubleClickZone = "j-international-aids-s_JIA2";
+			break;
+		case "journal_25721143":
+			var $DoubleClickZone = "j-orthoped-res_JOR";
+			break;
+		case "journal_15518701":
+			var $DoubleClickZone = "opflow_OPFL";
+			break;
+		case "journal_14781239":
+			var $DoubleClickZone = "j-gastro-hepatology_JGH";
+			break;
+		case "journal_19383673":
+			var $DoubleClickZone = "jrnl-leukocyte-biology_JLB";
+			break;
+		case "journal_24758817":
+			var $DoubleClickZone = "peptide-science_PEP2";
+			break;
+		case "journal_24725390":
+			var $DoubleClickZone = "academic-emer-med_acem_ET";
+	};
+
+	if (!$DoubleClickSite) {
+		var $DoubleClickSite = "undefined-site";
+	};
+
+	if (!$DoubleClickZone) {
+		var $DoubleClickZone = "undefined-zone";
+	};
+
+	var $GooglePublisherCategory = "/" + $WileyGooglePublisherID + "/" + $DoubleClickSite + "/" + $DoubleClickZone;
+</script>
+
+<script>
+	var googletag = googletag || {};
+
+	googletag.cmd = googletag.cmd || [];
+
+	( function () {
+
+		var gads = document.createElement ( 'script' ) ,
+		node = document.getElementsByTagName ( 'script' ) [ 0 ] ;
+
+		gads.async = true;
+		gads.src = document.location.protocol + '//www.googletagservices.com/tag/js/gpt.js';
+
+		node.parentNode.insertBefore ( gads , node );
+
+	}) ();
+</script>
+
+<script>
+	googletag.cmd.push ( function () {
+
+		var sizes = {
+			leaderboard : googletag.sizeMapping ()
+				.addSize ([ 300 , 100 ] , [ 300 , 50 ])
+				.addSize ([ 740 , 100 ] , [ 728 , 90 ])
+				.addSize ([ 0 , 0 ] , 'fluid')
+				.build () ,
+			rail : googletag.sizeMapping ()
+				.addSize ([ 0 , 0 ] , [ 300 , 250 ])
+				.build ()
+		};
+
+		googletag.pubads ()
+			.setTargeting ( 'property' 	, 'value-of-property' 	) 	// Change and duplicate this line for as many additional keywords to send
+			.setTargeting ( 'gs_cat' 	, gs_channels 		) 	// Grapeshot
+			.setTargeting ( 'ksg' 		, Krux.segments 	) 	// Krux
+			.setTargeting ( 'kuid' 		, Krux.user 		); 	// Krux
+
+		googletag.defineSlot ( $GooglePublisherCategory, 'fluid', 'advert-leaderboard' )
+			.defineSizeMapping ( sizes.leaderboard )
+			.addService ( googletag.pubads ())
+			.setCollapseEmptyDiv ( true );
+				
+		googletag.defineSlot ( $GooglePublisherCategory, 'fluid', 'advert-rail-1' )
+			.defineSizeMapping ( sizes.rail )
+			.setTargeting ( 'Position', 'advert-rail-1')
+			.addService ( googletag.pubads ()) 
+			.setCollapseEmptyDiv ( true );
+
+		googletag.defineSlot ( $GooglePublisherCategory, 'fluid', 'advert-rail-2' )
+			.defineSizeMapping ( sizes.rail )
+			.setTargeting ( 'Position', 'advert-rail-2')
+			.addService ( googletag.pubads ()) 
+			.setCollapseEmptyDiv ( true );
+
+		googletag.pubads ().enableSingleRequest ();
+		googletag.enableServices ();
+	});
+	//]]>
+</script>
+
+
+
+
+
+
+
+
+
+    
+        
+    
+
+
+
+
+
+
+
+
+    
+
+
+
+
+<script>
+    var digitalData = window.digitalData ? window.digitalData : {};
+    digitalData.page.title = "2010 Rheumatoid arthritis classification criteria: An American College of Rheumatology/European League Against Rheumatism collaborative initiative - Aletaha - 2010 - Arthritis &amp;amp; Rheumatism - Wiley Online Library";
+</script>
+
+<script>
+    tracking = {};
+
+    // events which don't generate server side events!
+    tracking.adtmOnlyEvents = ["readcube.share.createlink", "readcube.ecommerce.load", "readcube.ecommerce.new",
+        "readcube.ecommerce.userinfo", "readcube.ecommerce.register", "readcube.ecommerce.billing", "readcube.ecommerce.final",
+        "readcube.ecommerce.purchasefailed"];
+
+    tracking.ajaxData = function (eventName) {
+        return {
+            url: "/readcube/log",
+            data: {
+                "doi": digitalData.publication.item.doi,
+                event: eventName
+            }
+        }
+    };
+
+    tracking.trackEvent = function (eventName, eventData, callback) {
+
+        if (!tracking.adtmOnlyEvents.indexOf(eventName) >= 0) {
+            tracking.trackUsage(eventName, callback);
+        }
+        tracking.trackAnalytics(eventName, eventData);
+    };
+
+    tracking.trackUsage = function (eventName, callback) {
+        pr = $.ajax(tracking.ajaxData(eventName));
+
+        if (callback) {
+            pr.always(callback);
+        }
+
+    };
+
+    tracking.trackAnalytics = function (eventName, eventData) {
+        digitalData = window.digitalData ? digitalData : {};
+        digitalData.event = digitalData.event || [];
+        digitalData.event.push({
+            "eventName": eventName,
+            "eventData": eventData
+        });
+    }
+</script>
+
+
+
+
+
+
+    <!-- #1 Automatic Redirection to the traditional PDF for browsers with JavaScript disabled -->
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=https://onlinelibrary.wiley.com/doi/pdf/10.1002/art.27584">
+    </noscript>
+
+    <!-- #2 Meta Tag containing DOI -->
+    <meta name="DOI" content="10.1002/art.27584">
+    <meta name="ISSN" content="1529-0131">
+
+    <!-- #3 Meta Tag containing the PDF URL used for client side redirection -->
+    <meta name="PDF_URL" content="https://onlinelibrary.wiley.com/doi/pdf/10.1002/art.27584">
+
+    <!-- #4 Meta Tag containing the ACCESS ENDPOINT URL used for checking access -->
+    <meta name="ACCESS_ENDPOINT" content="https://onlinelibrary.wiley.com/action/readcubeaccess">
+
+    <script>
+        window.readcube_access_result = {"result":true,"signature":"P%2BbsQj73OS1Mnf7nuQpt28%2B6yOFGcci0svJNmPkNpirzvxrVUUdZPOX13Q5%2BXmGbzP3lBIYwl4JWMLYld3j9na4hhHDSzK%2FnEoGRuEpHgVwybdexgR5wZ0kfYN8K6Yx7G3HakYZ88Q4EKn8YvH9d%2FszSD76bTZL%2BoSTw3nR%2B8GtVs6w7W%2BOyk4Dd78lyZ4cBw7j4FwppGNU21jkdSORiA6CXGv4LW1gKh4M257Mt6DqzAjKmVBkiM7vKWD0kWUfvMHdPws20cwWyFbD5wwWKiYutwXdcZN11VKmMaMevFCymt%2FVkAhG0I72lzXKcSjTiYIqx%2B2O054BkucNBfYRriw%3D%3D","resource":"10.1002/art.27584","timestamp":1531866333720};
+    </script>
+
+    <!-- #6 ReadCube Embedded PDF JavaScript -->
+    
+    <script type="text/javascript" src="https://content.readcube.com/atypon/epdf.js"></script>
+
+    <!-- #7 (Optional) Fallback redirect mechanism if loading of the epdf.js script fails -->
+    <script>
+        setTimeout(function() {
+            if (window.readcube) return;
+            var metas = document.getElementsByTagName('meta');
+            for (i = 0; i < metas.length; i++) {
+                if (metas[i].getAttribute('name') == 'PDF_URL') {
+                    location.href = metas[i].getAttribute('content');
+                    break;
+                }
+            }
+        }, 10e3);
+    </script>
+</head>
+<body class="pb-ui">
+
+    <a href="#article__content"
+       id="skipNavigationLink" class="skip"
+       tabIndex="0">Skip to Main Content</a>
+
+
+
+
+<script type="text/javascript">
+
+    if(true) {
+        document.getElementById("skipNavigationLink").onclick =function skipElement () {
+            var element = document.getElementById('article__content');
+            if(element == null || element == undefined) {
+                element = document.getElementsByClassName('article__content').item(0);
+            }
+            element.setAttribute('tabindex','0');
+            element.focus();
+
+        }
+
+    }
+
+</script>    <div id="pb-page-content" data-ng-non-bindable>
+        <div data-pb-dropzone="main" data-pb-dropzone-name="Main">
+
+
+
+
+        
+        <div></div>
+
+
+
+
+        
+        <!-- [Tag{id&#x3D;101943, uri&#x3D;arth-rheum_art, name&#x3D;arth-rheum_ART}, Tag{id&#x3D;101802, uri&#x3D;wly.rheumat_000108, name&#x3D;wly.rheumat_000108}, Tag{id&#x3D;450, uri&#x3D;mda0, name&#x3D;General &amp; Internal Medicine}, Tag{id&#x3D;1346, uri&#x3D;mdt1, name&#x3D;Physical Rehabilitation}, Tag{id&#x3D;69, uri&#x3D;md, name&#x3D;MEDICAL SCIENCE}, Tag{id&#x3D;453, uri&#x3D;md30, name&#x3D;Anesthesia &amp; Pain Management}, Tag{id&#x3D;1356, uri&#x3D;mda2, name&#x3D;General Practice / Family Practice}, Tag{id&#x3D;1360, uri&#x3D;md32, name&#x3D;Pain Medicine}, Tag{id&#x3D;466, uri&#x3D;md10, name&#x3D;Basic Medical Sciences}, Tag{id&#x3D;467, uri&#x3D;mdr0, name&#x3D;Rheumatology}, Tag{id&#x3D;1403, uri&#x3D;md17, name&#x3D;Immunology}, Tag{id&#x3D;444, uri&#x3D;md20, name&#x3D;Allergy &amp; Clinical Immunology}, Tag{id&#x3D;1341, uri&#x3D;md22, name&#x3D;Clinical Immunology}, Tag{id&#x3D;446, uri&#x3D;mdt0, name&#x3D;Sports Medicine}] -->                              <div id="iucr-failure"> <p><i class="icon-notice"></i>The full text of this article hosted at iucr.org is unavailable due to technical difficulties.<a href="#" class="close-iucr-failure"><i class="icon-x"></i></a> </p> </div> 
+
+
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="/products/pericles/releasedAssets/js/main.bundle.js"></script>
+<script type="text/javascript" src="/wro/ezl3~product.js"></script>
+<script>var _prum=[['id','59e8fecb3847311aab7b23c6'],['mark','firstbyte',(new Date()).getTime()]];(function(){var s=document.getElementsByTagName('script')[0],p=document.createElement('script');p.async='async';p.src='//rum-static.pingdom.net/prum.min.js';s.parentNode.insertBefore(p,s);})();</script></body>
+</html>

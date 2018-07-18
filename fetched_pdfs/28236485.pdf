@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="no-js no-svg" lang="en-US">
+    <head>
+        <title>ScienceDirect.com | Science, health and medical journals, full text articles and books.</title>
+
+        <link rel="dns-prefetch" href="//www.sciencedirect.com"/>
+        <link rel="canonical" href="http://www.sciencedirect.com/"/>
+        <link rel="shortcut icon" href="http://cdn.els-cdn.com/sd/favSD.ico" type="image/x-icon"/>
+        <link rel="icon" href="http://cdn.els-cdn.com/sd/favSD.ico" type="image/x-icon">
+        <script id= "adobe-dtm" src="https://assets.adobedtm.com/376c5346e33126fdb6b2dbac81e307cbacfd7935/satelliteLib-b7cfe8df39a4e5eec5536bba80e13f4b6fa0dd7c.js" type="text/javascript"></script>
+
+    </head>
+
+    <body>
+        <noscript>
+            <div id="redirect-message">
+                <p>Please wait while you are being redirected, or click <a href="https://ac.els-cdn.com/S004896971730387X/1-s2.0-S004896971730387X-main.pdf?_tid=9fabfd0c-aeaa-4bd0-bb5b-a67e3dd1931f&acdnat=1531871025_1af041c018c14b669bb1715a24fdff73">here</a>
+                    if you aren't redirected in 10 seconds...</p>
+            </div>
+        </noscript>
+
+            <iframe src="//acw.scopus.com/SSOCore/update?acw=9462d4d66bca324b60684285724e2370eb8cgxrqa%7C%24%7CFBD5832B1268C183C402C1063811B8BAD9CEC947CE1F5F05BC7DB70F5E21565CEDB1D33588E5F7D138D33C63F2B00137EFADDBA6DFDA6FD73FBA44D1BD4E4F2EAFE9C31A29ED2080B6DA1F7CB1786ABB&utt=b582-a73ee7aa4616453acf5b102ed52ba3ae434" style="display:none;"></iframe>
+            <iframe src="//acw.sciencedirect.com/SSOCore/update?acw=9462d4d66bca324b60684285724e2370eb8cgxrqa%7C%24%7CFBD5832B1268C183C402C1063811B8BAD9CEC947CE1F5F05BC7DB70F5E21565CEDB1D33588E5F7D138D33C63F2B00137EFADDBA6DFDA6FD73FBA44D1BD4E4F2EAFE9C31A29ED2080B6DA1F7CB1786ABB&utt=b582-a73ee7aa4616453acf5b102ed52ba3ae434" style="display:none;"></iframe>
+            <iframe src="//acw.mendeley.com/SSOCore/update?acw=9462d4d66bca324b60684285724e2370eb8cgxrqa%7C%24%7CFBD5832B1268C183C402C1063811B8BAD9CEC947CE1F5F05BC7DB70F5E21565CEDB1D33588E5F7D138D33C63F2B00137EFADDBA6DFDA6FD73FBA44D1BD4E4F2EAFE9C31A29ED2080B6DA1F7CB1786ABB&utt=b582-a73ee7aa4616453acf5b102ed52ba3ae434" style="display:none;"></iframe>
+            <iframe src="//acw.sciverse.com/SSOCore/update?acw=9462d4d66bca324b60684285724e2370eb8cgxrqa%7C%24%7CFBD5832B1268C183C402C1063811B8BAD9CEC947CE1F5F05BC7DB70F5E21565CEDB1D33588E5F7D138D33C63F2B00137EFADDBA6DFDA6FD73FBA44D1BD4E4F2EAFE9C31A29ED2080B6DA1F7CB1786ABB&utt=b582-a73ee7aa4616453acf5b102ed52ba3ae434" style="display:none;"></iframe>
+            <iframe src="//acw.evise.com/SSOCore/update?acw=9462d4d66bca324b60684285724e2370eb8cgxrqa%7C%24%7CFBD5832B1268C183C402C1063811B8BAD9CEC947CE1F5F05BC7DB70F5E21565CEDB1D33588E5F7D138D33C63F2B00137EFADDBA6DFDA6FD73FBA44D1BD4E4F2EAFE9C31A29ED2080B6DA1F7CB1786ABB&utt=b582-a73ee7aa4616453acf5b102ed52ba3ae434" style="display:none;"></iframe>
+            <iframe src="//acw.elsevier.com/SSOCore/update?acw=9462d4d66bca324b60684285724e2370eb8cgxrqa%7C%24%7CFBD5832B1268C183C402C1063811B8BAD9CEC947CE1F5F05BC7DB70F5E21565CEDB1D33588E5F7D138D33C63F2B00137EFADDBA6DFDA6FD73FBA44D1BD4E4F2EAFE9C31A29ED2080B6DA1F7CB1786ABB&utt=b582-a73ee7aa4616453acf5b102ed52ba3ae434" style="display:none;"></iframe>
+
+        <script>
+            window.onload = function () {
+                window.location = 'https://ac.els-cdn.com/S004896971730387X/1-s2.0-S004896971730387X-main.pdf?_tid=9fabfd0c-aeaa-4bd0-bb5b-a67e3dd1931f&acdnat=1531871025_1af041c018c14b669bb1715a24fdff73';
+                refreshOriginalWindow();
+            }
+
+            function refreshOriginalWindow() {
+                const referrerPattern = /\/user\/(login|chooseorg|router|register|password)/;
+                if (window.opener && window.opener.location && referrerPattern.test(document.referrer)) {
+                    window.opener.location.reload(true);
+                }
+            }
+        </script>
+
+        <meta name="SDTech" content="Proudly brought to you by the SD Technology team in London, Dayton, and Amsterdam">
+        <script>
+    var pageData = {
+        page: {
+            businessUnit: 'ELS:RP:ST',
+            isProduction: 'true',
+            language: 'en',
+            name: 'pdfft:pdf:url',
+            productName: 'SD',
+            environment: 'prod',
+            noTracking: 'false',
+            loadTime: '',
+            loadTimestamp: '1531870846031',
+            type: 'CP-CA'
+        },
+        visitor: {
+            accessType: 'ae:ANON_IP',
+            appSessionId: '9462d4d66bca324b60684285724e2370eb8cgxrqa',
+            accountId: 'ae:59602',
+            accountName: 'ae:University of California - San Diego La Jolla',
+            ipAddress: '169.228.63.175',
+            loginStatus: 'anonymous',
+            userId: 'ae:4429'
+        },
+        content: [
+            {
+                entitlementType: 'subscription',
+                format: 'MIME-PDF',
+                id: 'sd:article:pii:S004896971730387X',
+                type: 'SD:ARTICLE:SCOPE-FULL',
+                detail: 'SD:ARTICLE:subtype:fla:tool:n/a'
+            }
+        ]
+    };
+    try {
+        pageData.page.loadTime = performance ?
+                (Math.round(performance.now())).toString() : "";
+        pageDataTracker.trackPageLoad();
+    }
+    catch (e) {
+        console.warn("There was an error loading or running Adobe DTM:\r\n ", e);
+    }
+</script>
+
+    </body>
+</html>
