@@ -236,7 +236,7 @@ else:
     pmids=[line.strip().split() for line in open(args['pmf'])]
     if len(pmids[0])==1:
         pmids=[x[0] for x in pmids]
-        names=pmids.copy()
+        names=pmids
     else:
         names=[x[1] for x in pmids]
         pmids=[x[0] for x in pmids]
