@@ -4,15 +4,15 @@ Batch download articles based on PMID (Pubmed ID)
 
 ## Required Packages
 
-The program is written for python 2.7.  It uses the following packages
+The program is written for python 2.7.  It uses the following non-default packages:
 ```
-argparse
-sys
-os
 requests
 BeautifulSoup
-re
-urllib
+```
+
+Optionally, instead of installing these yourself, the included "pubmed-batch-download.yml" file an be used with anaconda to install an environment that has versions of packages and python known to work with this program.  It can be installed via
+```
+conda env create -f pubmed-batch-download.yml
 ```
 
 ## Program Usage
