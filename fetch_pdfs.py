@@ -249,7 +249,7 @@ for pmid,name in zip(pmids,names):
             fetch(pmid,finders,name)
             retriesSoFar=args['maxRetries']
         except requests.ConnectionError as e:
-            if '104' in e[0][1][0]:
+            if len(e) >=3 and '104' in e[0][1][0]:
                 retriesSoFar+=1
                 if retriesSoFar<args['maxRetries']:
                     print "** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e)
