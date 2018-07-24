@@ -3,7 +3,7 @@
 
 # # Imports and command line arguments
 
-# In[4]:
+# In[2]:
 
 
 import argparse
@@ -27,11 +27,11 @@ parser.add_argument('-maxRetries',help="Change max number of retries per article
 args = vars(parser.parse_args())
 
 
-# In[27]:
+# In[54]:
 
 
-#debugging
-# args={'pmids':'26742956',
+# #debugging
+# args={'pmids':'26655157',
 #       'pmf':'%#$',
 #       'out':'fetched_pdfs',
 #       'maxRetries':3,
@@ -57,14 +57,14 @@ if not os.path.exists(args['out']):
 
 # # Functions
 
-# In[6]:
+# In[4]:
 
 
 def getMainUrl(url):
     return "/".join(url.split("/")[:3])
 
 
-# In[7]:
+# In[5]:
 
 
 def savePdfFromUrl(pdfUrl,directory,name):
@@ -73,7 +73,7 @@ def savePdfFromUrl(pdfUrl,directory,name):
         f.write(t.content)
 
 
-# In[33]:
+# In[6]:
 
 
 def fetch(pmid,finders,name):
@@ -86,7 +86,7 @@ def fetch(pmid,finders,name):
         return
     else:
         #first, download the html from the page that is on the otherside of the pubmed API
-        req=requests.get(uri,timeout=5)
+        req=requests.get(uri)
         if 'pubmed' in req.url:
             print " ** Reprint {0} cannot be fetched as pubmed does not have a link to its pdf.".format(pmid)
             dontTry=True
@@ -110,7 +110,7 @@ def fetch(pmid,finders,name):
 
 # # Finders
 
-# In[10]:
+# In[7]:
 
 
 def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check this.  Also, a PMID on CSH would help debugging
@@ -124,7 +124,7 @@ def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check th
     
 
 
-# In[11]:
+# In[8]:
 
 
 def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can debug this better
@@ -137,7 +137,7 @@ def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can de
     return None
 
 
-# In[19]:
+# In[66]:
 
 
 def science_direct(req,soup):
@@ -154,7 +154,7 @@ def science_direct(req,soup):
     return None
 
 
-# In[13]:
+# In[10]:
 
 
 def pubmed_central(req,soup):
@@ -171,7 +171,7 @@ def pubmed_central(req,soup):
     return None
 
 
-# In[14]:
+# In[11]:
 
 
 def acsPublications(req,soup):
@@ -185,7 +185,20 @@ def acsPublications(req,soup):
     return None
 
 
-# In[15]:
+# In[80]:
+
+
+def uchicagoPress(req,soup):
+    [x for x in soup.find_all('a') if type(x.get('href'))==str and 'pdf' in x.get('href') and '.edu/doi/' in x.get('href')][0]    
+    if len(possibleLinks)>0:
+        print "** fetching reprint using the 'uchicagoPress' finder..."
+        pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
+        return pdfUrl
+    
+    return None
+
+
+# In[12]:
 
 
 def zeneric(req,soup): # this finder has been renamed 'zeneric' instead of 'generic' to have it called last (as last resort)
@@ -198,7 +211,7 @@ def zeneric(req,soup): # this finder has been renamed 'zeneric' instead of 'gene
     return None
 
 
-# In[16]:
+# In[13]:
 
 
 def zframe(req,soup): # this finder has been renamed 'zframe' instead of 'frame' to have it called last (as last resort)
@@ -212,21 +225,22 @@ def zframe(req,soup): # this finder has been renamed 'zframe' instead of 'frame'
 
 # # Main
 
-# In[30]:
+# In[81]:
 
 
 finders=[
          'genericCitationLabelled',
          'pubmed_central',
-         'science_direct',
          'acsPublications',
+         'uchicagoPress',
 #          'zeneric', #removed until someone on github reports needing it, and then I will adapt it to python
-#          'zframe', #as above 
-         'direct_pdf_link',
+#          'zframe', #as above  
+        'science_direct',
+        'direct_pdf_link',
 ]
 
 
-# In[34]:
+# In[82]:
 
 
 if args['pmids']!='%#$':
@@ -249,7 +263,7 @@ for pmid,name in zip(pmids,names):
             fetch(pmid,finders,name)
             retriesSoFar=args['maxRetries']
         except requests.ConnectionError as e:
-            if len(e) >=3 and '104' in e[0][1][0]:
+            if '104' in str(e):
                 retriesSoFar+=1
                 if retriesSoFar<args['maxRetries']:
                     print "** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e)
@@ -260,5 +274,6 @@ for pmid,name in zip(pmids,names):
                 retriesSoFar=args['maxRetries']
         except Exception as e:
             print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
+            retriesSoFar=args['maxRetries']
 
 
