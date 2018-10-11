@@ -2,6 +2,8 @@
 
 Batch download articles based on PMID (Pubmed ID)
 
+Version 2.1.  Last update: 10/11/2018.
+
 ## Required Packages
 
 The program is written for python 2.7.  It uses the following non-default packages:
