@@ -3,7 +3,7 @@
 
 # # Imports and command line arguments
 
-# In[2]:
+# In[4]:
 
 
 import argparse
@@ -15,7 +15,7 @@ import re
 import urllib
 
 
-# In[ ]:
+# In[3]:
 
 
 parser=argparse.ArgumentParser()
@@ -27,11 +27,11 @@ parser.add_argument('-maxRetries',help="Change max number of retries per article
 args = vars(parser.parse_args())
 
 
-# In[54]:
+# In[1]:
 
 
 # #debugging
-# args={'pmids':'26655157',
+# args={'pmids':'25282519',
 #       'pmf':'%#$',
 #       'out':'fetched_pdfs',
 #       'maxRetries':3,
@@ -57,14 +57,14 @@ if not os.path.exists(args['out']):
 
 # # Functions
 
-# In[4]:
+# In[6]:
 
 
 def getMainUrl(url):
     return "/".join(url.split("/")[:3])
 
 
-# In[5]:
+# In[7]:
 
 
 def savePdfFromUrl(pdfUrl,directory,name):
@@ -73,7 +73,7 @@ def savePdfFromUrl(pdfUrl,directory,name):
         f.write(t.content)
 
 
-# In[6]:
+# In[8]:
 
 
 def fetch(pmid,finders,name):
@@ -110,7 +110,7 @@ def fetch(pmid,finders,name):
 
 # # Finders
 
-# In[7]:
+# In[9]:
 
 
 def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check this.  Also, a PMID on CSH would help debugging
@@ -124,7 +124,7 @@ def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check th
     
 
 
-# In[8]:
+# In[10]:
 
 
 def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can debug this better
@@ -137,7 +137,7 @@ def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can de
     return None
 
 
-# In[66]:
+# In[11]:
 
 
 def science_direct(req,soup):
@@ -154,7 +154,7 @@ def science_direct(req,soup):
     return None
 
 
-# In[10]:
+# In[12]:
 
 
 def pubmed_central(req,soup):
@@ -171,7 +171,7 @@ def pubmed_central(req,soup):
     return None
 
 
-# In[11]:
+# In[13]:
 
 
 def acsPublications(req,soup):
@@ -185,11 +185,11 @@ def acsPublications(req,soup):
     return None
 
 
-# In[80]:
+# In[21]:
 
 
 def uchicagoPress(req,soup):
-    [x for x in soup.find_all('a') if type(x.get('href'))==str and 'pdf' in x.get('href') and '.edu/doi/' in x.get('href')][0]    
+    possibleLinks=[x for x in soup.find_all('a') if type(x.get('href'))==str and 'pdf' in x.get('href') and '.edu/doi/' in x.get('href')]    
     if len(possibleLinks)>0:
         print "** fetching reprint using the 'uchicagoPress' finder..."
         pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
@@ -198,7 +198,7 @@ def uchicagoPress(req,soup):
     return None
 
 
-# In[12]:
+# In[15]:
 
 
 def zeneric(req,soup): # this finder has been renamed 'zeneric' instead of 'generic' to have it called last (as last resort)
@@ -211,7 +211,7 @@ def zeneric(req,soup): # this finder has been renamed 'zeneric' instead of 'gene
     return None
 
 
-# In[13]:
+# In[16]:
 
 
 def zframe(req,soup): # this finder has been renamed 'zframe' instead of 'frame' to have it called last (as last resort)
@@ -225,7 +225,7 @@ def zframe(req,soup): # this finder has been renamed 'zframe' instead of 'frame'
 
 # # Main
 
-# In[81]:
+# In[17]:
 
 
 finders=[
@@ -240,7 +240,7 @@ finders=[
 ]
 
 
-# In[82]:
+# In[22]:
 
 
 if args['pmids']!='%#$':
