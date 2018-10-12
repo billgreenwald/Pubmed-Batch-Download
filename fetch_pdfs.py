@@ -35,11 +35,11 @@ args = vars(parser.parse_args())
 # #NEJM -- 25176136
 # #Science Direct -- 25282519
 
-args={'pmids':'26030325',
-      'pmf':'%#$',
-      'out':'fetched_pdfs',
-      'maxRetries':3,
-      }
+# args={'pmids':'26030325',
+#       'pmf':'%#$',
+#       'out':'fetched_pdfs',
+#       'maxRetries':3,
+#       }
 
 
 # In[24]:
