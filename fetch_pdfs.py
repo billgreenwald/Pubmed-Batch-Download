@@ -27,18 +27,22 @@ parser.add_argument('-maxRetries',help="Change max number of retries per article
 args = vars(parser.parse_args())
 
 
-# In[1]:
+# In[68]:
 
 
 # #debugging
-# args={'pmids':'25282519',
-#       'pmf':'%#$',
-#       'out':'fetched_pdfs',
-#       'maxRetries':3,
-#       }
+# #List of pmids and how they should fetch correctly (to make sure new fetchers dont break old code)
+# #NEJM -- 25176136
+# #Science Direct -- 25282519
+
+args={'pmids':'26030325',
+      'pmf':'%#$',
+      'out':'fetched_pdfs',
+      'maxRetries':3,
+      }
 
 
-# In[5]:
+# In[24]:
 
 
 if len(sys.argv)==1:
@@ -55,16 +59,22 @@ if not os.path.exists(args['out']):
     os.mkdir(args['out'])
 
 
+# In[69]:
+
+
+"http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id={0}&retmode=ref&cmd=prlinks".format(args['pmids'])
+
+
 # # Functions
 
-# In[6]:
+# In[25]:
 
 
 def getMainUrl(url):
     return "/".join(url.split("/")[:3])
 
 
-# In[7]:
+# In[26]:
 
 
 def savePdfFromUrl(pdfUrl,directory,name):
@@ -73,7 +83,7 @@ def savePdfFromUrl(pdfUrl,directory,name):
         f.write(t.content)
 
 
-# In[8]:
+# In[27]:
 
 
 def fetch(pmid,finders,name):
@@ -110,7 +120,7 @@ def fetch(pmid,finders,name):
 
 # # Finders
 
-# In[9]:
+# In[28]:
 
 
 def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check this.  Also, a PMID on CSH would help debugging
@@ -124,7 +134,7 @@ def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check th
     
 
 
-# In[10]:
+# In[29]:
 
 
 def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can debug this better
@@ -137,7 +147,7 @@ def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can de
     return None
 
 
-# In[11]:
+# In[59]:
 
 
 def science_direct(req,soup):
@@ -147,6 +157,8 @@ def science_direct(req,soup):
 
     possibleLinks=soup.find_all('meta',attrs={'name':'citation_pdf_url'})
     
+    
+    
     if len(possibleLinks)>0:
         print "** fetching reprint using the 'science_direct' finder..."
         pdfUrl=possibleLinks[0].get('content')
@@ -154,7 +166,21 @@ def science_direct(req,soup):
     return None
 
 
-# In[12]:
+# In[56]:
+
+
+def nejm(req,soup):
+    possibleLinks=[x for x in soup.find_all('a') if type(x.get('data-download-type'))==str and (x.get('data-download-type').lower()=='article pdf')]
+        
+    if len(possibleLinks)>0:
+        print "** fetching reprint using the 'acsPublications' finder..."
+        pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
+        return pdfUrl
+    
+    return None
+
+
+# In[31]:
 
 
 def pubmed_central(req,soup):
@@ -171,7 +197,7 @@ def pubmed_central(req,soup):
     return None
 
 
-# In[13]:
+# In[32]:
 
 
 def acsPublications(req,soup):
@@ -185,7 +211,7 @@ def acsPublications(req,soup):
     return None
 
 
-# In[21]:
+# In[33]:
 
 
 def uchicagoPress(req,soup):
@@ -198,7 +224,7 @@ def uchicagoPress(req,soup):
     return None
 
 
-# In[15]:
+# In[34]:
 
 
 def zeneric(req,soup): # this finder has been renamed 'zeneric' instead of 'generic' to have it called last (as last resort)
@@ -211,7 +237,7 @@ def zeneric(req,soup): # this finder has been renamed 'zeneric' instead of 'gene
     return None
 
 
-# In[16]:
+# In[35]:
 
 
 def zframe(req,soup): # this finder has been renamed 'zframe' instead of 'frame' to have it called last (as last resort)
@@ -225,7 +251,7 @@ def zframe(req,soup): # this finder has been renamed 'zframe' instead of 'frame'
 
 # # Main
 
-# In[17]:
+# In[49]:
 
 
 finders=[
@@ -233,6 +259,7 @@ finders=[
          'pubmed_central',
          'acsPublications',
          'uchicagoPress',
+         'nejm',
 #          'zeneric', #removed until someone on github reports needing it, and then I will adapt it to python
 #          'zframe', #as above  
         'science_direct',
@@ -240,7 +267,7 @@ finders=[
 ]
 
 
-# In[22]:
+# In[66]:
 
 
 if args['pmids']!='%#$':
