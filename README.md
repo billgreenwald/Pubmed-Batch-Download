@@ -2,7 +2,7 @@
 
 Batch download articles based on PMID (Pubmed ID)
 
-Version 2.1.  Last update: 10/11/2018.
+Version 2.2.0  Last update: 10/12/2018.
 
 ## Required Packages
 
