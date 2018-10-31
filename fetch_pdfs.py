@@ -7,6 +7,7 @@
 
 
 import argparse
+import sys
 
 
 # In[3]:
@@ -49,9 +50,6 @@ if args['pmids']=='%#$' and args['pmf']=='%#$':
 if args['pmids']!='%#$' and args['pmf']!='%#$':
     print "Error: -pmids and -pmf cannot be used together.  Ignoring -pmf argument"
     args['pmf']='%#$'
-if not os.path.exists(args['out']):
-    print "Output directory of {0} did not exist.  Created the directory.".format(args['out'])
-    os.mkdir(args['out'])
 
 
 # In[ ]:
@@ -63,6 +61,20 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import urllib
+
+
+# In[ ]:
+
+
+if not os.path.exists(args['out']):
+    print "Output directory of {0} did not exist.  Created the directory.".format(args['out'])
+    os.mkdir(args['out'])
+
+
+# In[1]:
+
+
+"http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id={0}&retmode=ref&cmd=prlinks".format(30374447)
 
 
 # # Functions
