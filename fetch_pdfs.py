@@ -71,12 +71,6 @@ if not os.path.exists(args['out']):
     os.mkdir(args['out'])
 
 
-# In[1]:
-
-
-"http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id={0}&retmode=ref&cmd=prlinks".format(30374447)
-
-
 # # Functions
 
 # In[4]:
