@@ -7,12 +7,6 @@
 
 
 import argparse
-import sys
-import os
-import requests
-from bs4 import BeautifulSoup
-import re
-import urllib
 
 
 # In[3]:
@@ -58,6 +52,17 @@ if args['pmids']!='%#$' and args['pmf']!='%#$':
 if not os.path.exists(args['out']):
     print "Output directory of {0} did not exist.  Created the directory.".format(args['out'])
     os.mkdir(args['out'])
+
+
+# In[ ]:
+
+
+import sys
+import os
+import requests
+from bs4 import BeautifulSoup
+import re
+import urllib
 
 
 # # Functions
