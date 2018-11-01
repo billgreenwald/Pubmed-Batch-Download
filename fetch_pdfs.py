@@ -22,20 +22,21 @@ parser.add_argument('-maxRetries',help="Change max number of retries per article
 args = vars(parser.parse_args())
 
 
-# In[20]:
+# In[2]:
 
 
-# #debugging
-# #List of pmids and how they should fetch correctly (to make sure new fetchers dont break old code)
-# #NEJM -- 25176136
-# #Science Direct -- 25282519
-# #Oxfor Academics -- 26030325
+#debugging
+#List of pmids and how they should fetch correctly (to make sure new fetchers dont break old code)
+#NEJM -- 25176136
+#Science Direct -- 25282519
+#Oxford Academics -- 26030325
+#Future Medicine -- 28589772
  
-# args={'pmids':'25176136',
-#       'pmf':'%#$',
-#       'out':'fetched_pdfs',
-#       'maxRetries':3,
-#       }
+args={'pmids':'28514316',
+      'pmf':'%#$',
+      'out':'fetched_pdfs',
+      'maxRetries':3,
+      }
 
 
 # In[3]:
@@ -52,7 +53,7 @@ if args['pmids']!='%#$' and args['pmf']!='%#$':
     args['pmf']='%#$'
 
 
-# In[ ]:
+# In[4]:
 
 
 import sys
@@ -63,7 +64,7 @@ import re
 import urllib
 
 
-# In[ ]:
+# In[5]:
 
 
 if not os.path.exists(args['out']):
@@ -71,16 +72,18 @@ if not os.path.exists(args['out']):
     os.mkdir(args['out'])
 
 
+# ### Debug space.  Clear before commit
+
 # # Functions
 
-# In[4]:
+# In[21]:
 
 
 def getMainUrl(url):
     return "/".join(url.split("/")[:3])
 
 
-# In[5]:
+# In[22]:
 
 
 def savePdfFromUrl(pdfUrl,directory,name,headers):
@@ -89,7 +92,7 @@ def savePdfFromUrl(pdfUrl,directory,name,headers):
         f.write(t.content)
 
 
-# In[6]:
+# In[131]:
 
 
 def fetch(pmid,finders,name,headers):
@@ -103,12 +106,12 @@ def fetch(pmid,finders,name,headers):
     else:
         #first, download the html from the page that is on the other side of the pubmed API
         req=requests.get(uri,headers=headers)
-        if 'pubmed' in req.url:
-            print " ** Reprint {0} cannot be fetched as pubmed does not have a link to its pdf.".format(pmid)
-            dontTry=True
-            success=True
+#         if 'pubmed' in req.url:
+#             print " ** Reprint {0} cannot be fetched as pubmed does not have a link to its pdf.".format(pmid)
+#             dontTry=True
+#             success=True
         soup=BeautifulSoup(req.content,'lxml')
-        
+#         return soup
         # loop through all finders until it finds one that return the pdf reprint
         if not dontTry:
             for finder in finders:
@@ -126,7 +129,46 @@ def fetch(pmid,finders,name,headers):
 
 # # Finders
 
-# In[7]:
+# In[15]:
+
+
+def acsPublications(req,soup):
+    possibleLinks=[x for x in soup.find_all('a') if type(x.get('title'))==str and ('high-res pdf' in x.get('title').lower() or 'low-res pdf' in x.get('title').lower())]
+    
+    if len(possibleLinks)>0:
+        print "** fetching reprint using the 'acsPublications' finder..."
+        pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
+        return pdfUrl
+    
+    return None
+
+
+# In[11]:
+
+
+def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can debug this better
+    
+    if req.content[-4:]=='.pdf':
+        print "** fetching reprint using the 'direct pdf link' finder..."
+        pdfUrl=req.content
+        return pdfUrl
+    
+    return None
+
+
+# In[71]:
+
+
+def futureMedicine(req,soup):
+    possibleLinks=soup.find_all('a',attrs={'href':re.compile("/doi/pdf")})
+    if len(possibleLinks)>0:
+        print "** fetching reprint using the 'future medicine' finder..."
+        pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
+        return pdfUrl
+    return None
+
+
+# In[10]:
 
 
 def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check this.  Also, a PMID on CSH would help debugging
@@ -140,20 +182,51 @@ def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check th
     
 
 
-# In[8]:
+# In[13]:
 
 
-def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can debug this better
-    
-    if req.content[-4:]=='.pdf':
-        print "** fetching reprint using the 'direct pdf link' finder..."
-        pdfUrl=req.content
+def nejm(req,soup):
+    possibleLinks=[x for x in soup.find_all('a') if type(x.get('data-download-type'))==str and (x.get('data-download-type').lower()=='article pdf')]
+        
+    if len(possibleLinks)>0:
+        print "** fetching reprint using the 'NEJM' finder..."
+        pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
         return pdfUrl
     
     return None
 
 
-# In[9]:
+# In[66]:
+
+
+def pubmed_central_v1(req,soup):
+    possibleLinks=soup.find_all('a',re.compile('pdf'))
+    
+    possibleLinks=[x for x in possibleLinks if 'epdf' not in x.get('title').lower()] #this allows the pubmed_central finder to also work for wiley
+    
+    if len(possibleLinks)>0:
+        print "** fetching reprint using the 'pubmed central' finder..."
+        pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
+        return pdfUrl
+    
+    return None
+
+
+# In[126]:
+
+
+def pubmed_central_v2(req,soup):
+    possibleLinks=soup.find_all('a',attrs={'href':re.compile('/pmc/articles')})
+        
+    if len(possibleLinks)>0:
+        print "** fetching reprint using the 'pubmed central' finder..."
+        pdfUrl="https://www.ncbi.nlm.nih.gov/{}".format(possibleLinks[0].get('href'))
+        return pdfUrl
+    
+    return None
+
+
+# In[12]:
 
 
 def science_direct(req,soup):
@@ -173,52 +246,7 @@ def science_direct(req,soup):
     return None
 
 
-# In[10]:
-
-
-def nejm(req,soup):
-    possibleLinks=[x for x in soup.find_all('a') if type(x.get('data-download-type'))==str and (x.get('data-download-type').lower()=='article pdf')]
-        
-    if len(possibleLinks)>0:
-        print "** fetching reprint using the 'NEJM' finder..."
-        pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
-        return pdfUrl
-    
-    return None
-
-
-# In[11]:
-
-
-def pubmed_central(req,soup):
-
-    possibleLinks=soup.find_all('a',re.compile('pdf'))
-    
-    possibleLinks=[x for x in possibleLinks if 'epdf' not in x.get('title').lower()] #this allows the pubmed_central finder to also work for wiley
-    
-    if len(possibleLinks)>0:
-        print "** fetching reprint using the 'pubmed central' finder..."
-        pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
-        return pdfUrl
-    
-    return None
-
-
-# In[12]:
-
-
-def acsPublications(req,soup):
-    possibleLinks=[x for x in soup.find_all('a') if type(x.get('title'))==str and ('high-res pdf' in x.get('title').lower() or 'low-res pdf' in x.get('title').lower())]
-    
-    if len(possibleLinks)>0:
-        print "** fetching reprint using the 'acsPublications' finder..."
-        pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
-        return pdfUrl
-    
-    return None
-
-
-# In[13]:
+# In[16]:
 
 
 def uchicagoPress(req,soup):
@@ -231,50 +259,24 @@ def uchicagoPress(req,soup):
     return None
 
 
-# In[14]:
-
-
-def zeneric(req,soup): # this finder has been renamed 'zeneric' instead of 'generic' to have it called last (as last resort)
-#     page = m.click p.links_with(:text  => /pdf|full[\s-]?text|reprint/i, :href => /.pdf$/i)[0]
-    #page = m.click p.links_with(:text  => /pdf|full[\s-]?text|reprint/i).and.href(/.pdf$/i)
-#     if len(possibleLinks)>0:
-#         print "** fetching reprint using the 'pubmed central' finder..."
-#         pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
-#         return pdfUrl
-    return None
-
-
-# In[15]:
-
-
-def zframe(req,soup): # this finder has been renamed 'zframe' instead of 'frame' to have it called last (as last resort)
-#   page = m.click p.frame_with(:src => /.pdf/i)
-#     if len(possibleLinks)>0:
-#         print "** fetching reprint using the 'pubmed central' finder..."
-#         pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
-#         return pdfUrl
-    return None
-
-
 # # Main
 
-# In[16]:
+# In[129]:
 
 
 finders=[
          'genericCitationLabelled',
-         'pubmed_central',
+         'pubmed_central_v2',
          'acsPublications',
          'uchicagoPress',
          'nejm',
-#          'zeneric', #removed until someone on github reports needing it, and then I will adapt it to python
-#          'zframe', #as above  
-        'science_direct',
-        'direct_pdf_link',
+         'futureMedicine',
+         'science_direct',
+         'direct_pdf_link',
 ]
 
 
-# In[21]:
+# In[145]:
 
 
 headers = requests.utils.default_headers()
@@ -297,10 +299,10 @@ for pmid,name in zip(pmids,names):
     retriesSoFar=0
     while retriesSoFar<args['maxRetries']:
         try:
-            fetch(pmid,finders,name,headers)
+            soup=fetch(pmid,finders,name,headers)
             retriesSoFar=args['maxRetries']
         except requests.ConnectionError as e:
-            if '104' in str(e):
+            if '104' in str(e) or 'BadStatusLine' in str(e):
                 retriesSoFar+=1
                 if retriesSoFar<args['maxRetries']:
                     print "** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e)
@@ -312,5 +314,39 @@ for pmid,name in zip(pmids,names):
         except Exception as e:
             print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
             retriesSoFar=args['maxRetries']
+
+
+# # Test cases for when adding a new finder
+
+# In[135]:
+
+
+# headers = requests.utils.default_headers()
+# headers['User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+
+# #NEJM, Science Direct, Oxford Academics, Future Medicine, Pubmed Central
+# pmids=['25176136','25282519','26030325','28589772','28543980']
+# names=pmids
+
+# for pmid,name in zip(pmids,names):
+#     print ("Trying to fetch pmid {0}".format(pmid))
+#     retriesSoFar=0
+#     while retriesSoFar<args['maxRetries']:
+#         try:
+#             soup=fetch(pmid,finders,name,headers)
+#             retriesSoFar=args['maxRetries']
+#         except requests.ConnectionError as e:
+#             if '104' in str(e):
+#                 retriesSoFar+=1
+#                 if retriesSoFar<args['maxRetries']:
+#                     print "** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e)
+#                 else:
+#                     print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
+#             else:
+#                 print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
+#                 retriesSoFar=args['maxRetries']
+#         except Exception as e:
+#             print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
+#             retriesSoFar=args['maxRetries']
 
 
