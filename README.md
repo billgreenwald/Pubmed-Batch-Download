@@ -56,3 +56,7 @@ Optionally, this file can have a second column, which is what to name the files 
 python fetch_pdfs.py -pmids 123,124,125,23923,111
 ```
 will place the files 123.pdf, 124.pdf, 125.pdf, 23923.pdf, and 111.pdf inside of the PDF folder, assuming all were found
+
+## Known download issues
+
+The requests package cannot execute JavaScript, and thus pages that require javascript to load the link to the pdf or to the journal cannot be obtained with this program.  As of now, this covers the Wolters Kluwer's journals.
