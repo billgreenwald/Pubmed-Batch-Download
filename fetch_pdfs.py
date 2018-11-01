@@ -106,10 +106,10 @@ def fetch(pmid,finders,name,headers):
     else:
         #first, download the html from the page that is on the other side of the pubmed API
         req=requests.get(uri,headers=headers)
-#         if 'pubmed' in req.url:
-#             print " ** Reprint {0} cannot be fetched as pubmed does not have a link to its pdf.".format(pmid)
-#             dontTry=True
-#             success=True
+        if 'ovid' in req.url:
+            print " ** Reprint {0} cannot be fetched as ovid is not supported by the requests package.".format(pmid)
+            dontTry=True
+            success=True
         soup=BeautifulSoup(req.content,'lxml')
 #         return soup
         # loop through all finders until it finds one that return the pdf reprint
