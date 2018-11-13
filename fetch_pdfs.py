@@ -32,11 +32,11 @@ args = vars(parser.parse_args())
 #Oxford Academics -- 26030325
 #Future Medicine -- 28589772
  
-args={'pmids':'28514316',
-      'pmf':'%#$',
-      'out':'fetched_pdfs',
-      'maxRetries':3,
-      }
+# args={'pmids':'28514316',
+#       'pmf':'%#$',
+#       'out':'fetched_pdfs',
+#       'maxRetries':3,
+#       }
 
 
 # In[3]:
