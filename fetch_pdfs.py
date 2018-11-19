@@ -23,7 +23,7 @@ parser.add_argument('-maxRetries',help="Change max number of retries per article
 args = vars(parser.parse_args())
 
 
-# In[21]:
+# In[87]:
 
 
 #debugging
@@ -33,7 +33,7 @@ args = vars(parser.parse_args())
 #Oxford Academics -- 26030325
 #Future Medicine -- 28589772
  
-# args={'pmids':'28514316',
+# args={'pmids':'27782767',
 #       'pmf':'%#$',
 #       'out':'fetched_pdfs',
 #       'maxRetries':3,
@@ -41,7 +41,7 @@ args = vars(parser.parse_args())
 #       }
 
 
-# In[3]:
+# In[67]:
 
 
 if len(sys.argv)==1:
@@ -55,7 +55,7 @@ if args['pmids']!='%#$' and args['pmf']!='%#$':
     args['pmf']='%#$'
 
 
-# In[4]:
+# In[68]:
 
 
 import sys
@@ -78,14 +78,14 @@ if not os.path.exists(args['out']):
 
 # # Functions
 
-# In[6]:
+# In[69]:
 
 
 def getMainUrl(url):
     return "/".join(url.split("/")[:3])
 
 
-# In[7]:
+# In[70]:
 
 
 def savePdfFromUrl(pdfUrl,directory,name,headers):
@@ -94,7 +94,7 @@ def savePdfFromUrl(pdfUrl,directory,name,headers):
         f.write(t.content)
 
 
-# In[24]:
+# In[71]:
 
 
 def fetch(pmid,finders,name,headers,errorPmids):
@@ -119,7 +119,7 @@ def fetch(pmid,finders,name,headers,errorPmids):
         if not dontTry:
             for finder in finders:
                 print "Trying {0}".format(finder)
-                pdfUrl = eval(finder)(req,soup)
+                pdfUrl = eval(finder)(req,soup,headers)
                 if type(pdfUrl)!=type(None):
                     savePdfFromUrl(pdfUrl,args['out'],name,headers)
                     success = True
@@ -133,10 +133,10 @@ def fetch(pmid,finders,name,headers,errorPmids):
 
 # # Finders
 
-# In[9]:
+# In[72]:
 
 
-def acsPublications(req,soup):
+def acsPublications(req,soup,headers):
     possibleLinks=[x for x in soup.find_all('a') if type(x.get('title'))==str and ('high-res pdf' in x.get('title').lower() or 'low-res pdf' in x.get('title').lower())]
     
     if len(possibleLinks)>0:
@@ -147,10 +147,10 @@ def acsPublications(req,soup):
     return None
 
 
-# In[10]:
+# In[73]:
 
 
-def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can debug this better
+def direct_pdf_link(req,soup,headers): #if anyone has a PMID that direct links, I can debug this better
     
     if req.content[-4:]=='.pdf':
         print "** fetching reprint using the 'direct pdf link' finder..."
@@ -160,10 +160,10 @@ def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can de
     return None
 
 
-# In[11]:
+# In[74]:
 
 
-def futureMedicine(req,soup):
+def futureMedicine(req,soup,headers):
     possibleLinks=soup.find_all('a',attrs={'href':re.compile("/doi/pdf")})
     if len(possibleLinks)>0:
         print "** fetching reprint using the 'future medicine' finder..."
@@ -172,10 +172,10 @@ def futureMedicine(req,soup):
     return None
 
 
-# In[12]:
+# In[75]:
 
 
-def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check this.  Also, a PMID on CSH would help debugging
+def genericCitationLabelled(req,soup,headers): #if anyone has CSH access, I can check this.  Also, a PMID on CSH would help debugging
     
     possibleLinks=soup.find_all('meta',attrs={'name':'citation_pdf_url'})
     if len(possibleLinks)>0:
@@ -186,10 +186,10 @@ def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check th
     
 
 
-# In[13]:
+# In[76]:
 
 
-def nejm(req,soup):
+def nejm(req,soup,headers):
     possibleLinks=[x for x in soup.find_all('a') if type(x.get('data-download-type'))==str and (x.get('data-download-type').lower()=='article pdf')]
         
     if len(possibleLinks)>0:
@@ -200,10 +200,10 @@ def nejm(req,soup):
     return None
 
 
-# In[14]:
+# In[77]:
 
 
-def pubmed_central_v1(req,soup):
+def pubmed_central_v1(req,soup,headers):
     possibleLinks=soup.find_all('a',re.compile('pdf'))
     
     possibleLinks=[x for x in possibleLinks if 'epdf' not in x.get('title').lower()] #this allows the pubmed_central finder to also work for wiley
@@ -216,10 +216,10 @@ def pubmed_central_v1(req,soup):
     return None
 
 
-# In[15]:
+# In[78]:
 
 
-def pubmed_central_v2(req,soup):
+def pubmed_central_v2(req,soup,headers):
     possibleLinks=soup.find_all('a',attrs={'href':re.compile('/pmc/articles')})
         
     if len(possibleLinks)>0:
@@ -230,13 +230,12 @@ def pubmed_central_v2(req,soup):
     return None
 
 
-# In[16]:
+# In[79]:
 
 
-def science_direct(req,soup):
-    
+def science_direct(req,soup,headers):
     newUri=urllib.unquote(soup.find_all('input')[0].get('value'))
-    req=requests.get(newUri,allow_redirects=True)
+    req=requests.get(newUri,allow_redirects=True,headers=headers)
     soup=BeautifulSoup(req.content,'lxml')
 
     possibleLinks=soup.find_all('meta',attrs={'name':'citation_pdf_url'})
@@ -250,10 +249,10 @@ def science_direct(req,soup):
     return None
 
 
-# In[17]:
+# In[80]:
 
 
-def uchicagoPress(req,soup):
+def uchicagoPress(req,soup,headers):
     possibleLinks=[x for x in soup.find_all('a') if type(x.get('href'))==str and 'pdf' in x.get('href') and '.edu/doi/' in x.get('href')]    
     if len(possibleLinks)>0:
         print "** fetching reprint using the 'uchicagoPress' finder..."
@@ -265,7 +264,7 @@ def uchicagoPress(req,soup):
 
 # # Main
 
-# In[18]:
+# In[81]:
 
 
 finders=[
@@ -280,7 +279,7 @@ finders=[
 ]
 
 
-# In[25]:
+# In[92]:
 
 
 headers = requests.utils.default_headers()
@@ -332,8 +331,8 @@ with open(args['errors'],'w+') as errorPmids:
 # headers = requests.utils.default_headers()
 # headers['User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
 
-# #NEJM, Science Direct, Oxford Academics, Future Medicine, Pubmed Central
-# pmids=['25176136','25282519','26030325','28589772','28543980']
+# #NEJM, Science Direct, Oxford Academics, Future Medicine, Pubmed Central, Science Direct
+# pmids=['25176136','25282519','26030325','28589772','28543980', '24985776']
 # names=pmids
 
 # for pmid,name in zip(pmids,names):
