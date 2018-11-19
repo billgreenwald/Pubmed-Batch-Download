@@ -32,7 +32,8 @@ The program has the following arguments.  It must be run with *either* -pmids or
 -pmids: A comma separated list of pmids to download
 -pmf: A file with 1 or 2 columns of pmids and file names to download.  See below for example
 -out: The output folder to store the downloaded pdfs.  By default, this is ./fetched_pdfs
--matRetries: Maximum number of times to try to redownload a pdf on an Connection Error (specifically, an ECONNRESET code 104).
+-errors: File path to write all un-downloaded PMIDs during program run.  By default, this is ./unfetched_pmids.tsv.  This file is overwritten each run.
+-maxRetries: Maximum number of times to try to redownload a pdf on an Connection Error (specifically, an ECONNRESET code 104).
 ```
 
 **PMF File Format**:
@@ -49,6 +50,8 @@ Optionally, this file can have a second column, which is what to name the files 
 123 Article_1
 4456  Some_Other_Article
 ```
+
+When the program cannot download files, the non-downloaded PMIDs are stored in a PMF format file.  This can then be directly used at a later date with the program.  PMIDs and names are both stored within this file.
 
 **Example script usage:**
 
