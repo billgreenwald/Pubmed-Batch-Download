@@ -3,14 +3,14 @@
 
 # # Imports and command line arguments
 
-# In[1]:
+# In[2]:
 
 
 import argparse
 import sys
 
 
-# In[3]:
+# In[20]:
 
 
 parser=argparse.ArgumentParser()
@@ -18,11 +18,12 @@ parser._optionals.title = "Flag Arguments"
 parser.add_argument('-pmids',help="Comma separated list of pmids to fetch. Must include -pmids or -pmf.", default='%#$')
 parser.add_argument('-pmf',help="File with pmids to fetch inside, one pmid per line. Optionally, the file can be a tsv with a second column of names to save each pmid's article with (without '.pdf' at the end). Must include -pmids or -pmf", default='%#$')
 parser.add_argument('-out',help="Output directory for fetched articles.  Default: fetched_pdfs", default="fetched_pdfs")
+parser.add_argument('-errors',help="Output file path for pmids which failed to fetch.  Default: unfetched_pmids.tsv", default="unfetched_pmids.tsv")
 parser.add_argument('-maxRetries',help="Change max number of retries per article on an error 104.  Default: 3", default=3,type=int)
 args = vars(parser.parse_args())
 
 
-# In[2]:
+# In[21]:
 
 
 #debugging
@@ -36,6 +37,7 @@ args = vars(parser.parse_args())
 #       'pmf':'%#$',
 #       'out':'fetched_pdfs',
 #       'maxRetries':3,
+#        'errors':'unfetched_pmids.tsv'
 #       }
 
 
@@ -76,14 +78,14 @@ if not os.path.exists(args['out']):
 
 # # Functions
 
-# In[21]:
+# In[6]:
 
 
 def getMainUrl(url):
     return "/".join(url.split("/")[:3])
 
 
-# In[22]:
+# In[7]:
 
 
 def savePdfFromUrl(pdfUrl,directory,name,headers):
@@ -92,10 +94,10 @@ def savePdfFromUrl(pdfUrl,directory,name,headers):
         f.write(t.content)
 
 
-# In[131]:
+# In[24]:
 
 
-def fetch(pmid,finders,name,headers):
+def fetch(pmid,finders,name,headers,errorPmids):
     
     uri = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id={0}&retmode=ref&cmd=prlinks".format(pmid)
     success = False
@@ -108,6 +110,7 @@ def fetch(pmid,finders,name,headers):
         req=requests.get(uri,headers=headers)
         if 'ovid' in req.url:
             print " ** Reprint {0} cannot be fetched as ovid is not supported by the requests package.".format(pmid)
+            errorPmids.write("{}\t{}\n".format(pmid,name))
             dontTry=True
             success=True
         soup=BeautifulSoup(req.content,'lxml')
@@ -125,11 +128,12 @@ def fetch(pmid,finders,name,headers):
        
         if not success:
             print "** Reprint {0} could not be fetched with the current finders.".format(pmid)
+            errorPmids.write("{}\t{}\n".format(pmid,name))
 
 
 # # Finders
 
-# In[15]:
+# In[9]:
 
 
 def acsPublications(req,soup):
@@ -143,7 +147,7 @@ def acsPublications(req,soup):
     return None
 
 
-# In[11]:
+# In[10]:
 
 
 def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can debug this better
@@ -156,7 +160,7 @@ def direct_pdf_link(req,soup): #if anyone has a PMID that direct links, I can de
     return None
 
 
-# In[71]:
+# In[11]:
 
 
 def futureMedicine(req,soup):
@@ -168,7 +172,7 @@ def futureMedicine(req,soup):
     return None
 
 
-# In[10]:
+# In[12]:
 
 
 def genericCitationLabelled(req,soup): #if anyone has CSH access, I can check this.  Also, a PMID on CSH would help debugging
@@ -196,7 +200,7 @@ def nejm(req,soup):
     return None
 
 
-# In[66]:
+# In[14]:
 
 
 def pubmed_central_v1(req,soup):
@@ -212,7 +216,7 @@ def pubmed_central_v1(req,soup):
     return None
 
 
-# In[126]:
+# In[15]:
 
 
 def pubmed_central_v2(req,soup):
@@ -226,7 +230,7 @@ def pubmed_central_v2(req,soup):
     return None
 
 
-# In[12]:
+# In[16]:
 
 
 def science_direct(req,soup):
@@ -246,7 +250,7 @@ def science_direct(req,soup):
     return None
 
 
-# In[16]:
+# In[17]:
 
 
 def uchicagoPress(req,soup):
@@ -261,7 +265,7 @@ def uchicagoPress(req,soup):
 
 # # Main
 
-# In[129]:
+# In[18]:
 
 
 finders=[
@@ -276,7 +280,7 @@ finders=[
 ]
 
 
-# In[145]:
+# In[25]:
 
 
 headers = requests.utils.default_headers()
@@ -294,26 +298,30 @@ else:
         names=[x[1] for x in pmids]
         pmids=[x[0] for x in pmids]
 
-for pmid,name in zip(pmids,names):
-    print ("Trying to fetch pmid {0}".format(pmid))
-    retriesSoFar=0
-    while retriesSoFar<args['maxRetries']:
-        try:
-            soup=fetch(pmid,finders,name,headers)
-            retriesSoFar=args['maxRetries']
-        except requests.ConnectionError as e:
-            if '104' in str(e) or 'BadStatusLine' in str(e):
-                retriesSoFar+=1
-                if retriesSoFar<args['maxRetries']:
-                    print "** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e)
+with open(args['errors'],'w+') as errorPmids:
+    for pmid,name in zip(pmids,names):
+        print ("Trying to fetch pmid {0}".format(pmid))
+        retriesSoFar=0
+        while retriesSoFar<args['maxRetries']:
+            try:
+                soup=fetch(pmid,finders,name,headers,errorPmids)
+                retriesSoFar=args['maxRetries']
+            except requests.ConnectionError as e:
+                if '104' in str(e) or 'BadStatusLine' in str(e):
+                    retriesSoFar+=1
+                    if retriesSoFar<args['maxRetries']:
+                        print "** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e)
+                    else:
+                        print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
+                        errorPmids.write("{}\t{}\n".format(pmid,name))
                 else:
                     print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
-            else:
+                    retriesSoFar=args['maxRetries']
+                    errorPmids.write("{}\t{}\n".format(pmid,name))
+            except Exception as e:
                 print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
                 retriesSoFar=args['maxRetries']
-        except Exception as e:
-            print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
-            retriesSoFar=args['maxRetries']
+                errorPmids.write("{}\t{}\n".format(pmid,name))
 
 
 # # Test cases for when adding a new finder
