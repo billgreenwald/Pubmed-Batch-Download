@@ -23,7 +23,7 @@ parser.add_argument('-maxRetries',help="Change max number of retries per article
 args = vars(parser.parse_args())
 
 
-# In[87]:
+# In[7]:
 
 
 #debugging
@@ -41,7 +41,7 @@ args = vars(parser.parse_args())
 #       }
 
 
-# In[67]:
+# In[4]:
 
 
 if len(sys.argv)==1:
@@ -55,7 +55,7 @@ if args['pmids']!='%#$' and args['pmf']!='%#$':
     args['pmf']='%#$'
 
 
-# In[68]:
+# In[5]:
 
 
 import sys
@@ -66,7 +66,7 @@ import re
 import urllib
 
 
-# In[5]:
+# In[6]:
 
 
 if not os.path.exists(args['out']):
@@ -78,23 +78,23 @@ if not os.path.exists(args['out']):
 
 # # Functions
 
-# In[69]:
+# In[8]:
 
 
 def getMainUrl(url):
     return "/".join(url.split("/")[:3])
 
 
-# In[70]:
+# In[25]:
 
 
 def savePdfFromUrl(pdfUrl,directory,name,headers):
-    t=requests.get(pdfUrl,headers=headers)
+    t=requests.get(pdfUrl,headers=headers,allow_redirects=True)
     with open('{0}/{1}.pdf'.format(directory,name), 'wb') as f:
         f.write(t.content)
 
 
-# In[71]:
+# In[63]:
 
 
 def fetch(pmid,finders,name,headers,errorPmids):
@@ -133,7 +133,7 @@ def fetch(pmid,finders,name,headers,errorPmids):
 
 # # Finders
 
-# In[72]:
+# In[11]:
 
 
 def acsPublications(req,soup,headers):
@@ -147,7 +147,7 @@ def acsPublications(req,soup,headers):
     return None
 
 
-# In[73]:
+# In[12]:
 
 
 def direct_pdf_link(req,soup,headers): #if anyone has a PMID that direct links, I can debug this better
@@ -160,7 +160,7 @@ def direct_pdf_link(req,soup,headers): #if anyone has a PMID that direct links, 
     return None
 
 
-# In[74]:
+# In[13]:
 
 
 def futureMedicine(req,soup,headers):
@@ -172,7 +172,7 @@ def futureMedicine(req,soup,headers):
     return None
 
 
-# In[75]:
+# In[14]:
 
 
 def genericCitationLabelled(req,soup,headers): #if anyone has CSH access, I can check this.  Also, a PMID on CSH would help debugging
@@ -186,7 +186,7 @@ def genericCitationLabelled(req,soup,headers): #if anyone has CSH access, I can 
     
 
 
-# In[76]:
+# In[15]:
 
 
 def nejm(req,soup,headers):
@@ -200,7 +200,7 @@ def nejm(req,soup,headers):
     return None
 
 
-# In[77]:
+# In[16]:
 
 
 def pubmed_central_v1(req,soup,headers):
@@ -216,7 +216,7 @@ def pubmed_central_v1(req,soup,headers):
     return None
 
 
-# In[78]:
+# In[17]:
 
 
 def pubmed_central_v2(req,soup,headers):
@@ -230,7 +230,7 @@ def pubmed_central_v2(req,soup,headers):
     return None
 
 
-# In[79]:
+# In[62]:
 
 
 def science_direct(req,soup,headers):
@@ -244,12 +244,14 @@ def science_direct(req,soup,headers):
     
     if len(possibleLinks)>0:
         print "** fetching reprint using the 'science_direct' finder..."
-        pdfUrl=possibleLinks[0].get('content')
+        req=requests.get(possibleLinks[0].get('content'),headers=headers)
+        soup=BeautifulSoup(req.content,'lxml')
+        pdfUrl=soup.find_all('a')[0].get('href')
         return pdfUrl
     return None
 
 
-# In[80]:
+# In[19]:
 
 
 def uchicagoPress(req,soup,headers):
@@ -264,7 +266,7 @@ def uchicagoPress(req,soup,headers):
 
 # # Main
 
-# In[81]:
+# In[20]:
 
 
 finders=[
@@ -279,7 +281,7 @@ finders=[
 ]
 
 
-# In[92]:
+# In[48]:
 
 
 headers = requests.utils.default_headers()
@@ -325,7 +327,7 @@ with open(args['errors'],'w+') as errorPmids:
 
 # # Test cases for when adding a new finder
 
-# In[135]:
+# In[64]:
 
 
 # headers = requests.utils.default_headers()
@@ -335,25 +337,26 @@ with open(args['errors'],'w+') as errorPmids:
 # pmids=['25176136','25282519','26030325','28589772','28543980', '24985776']
 # names=pmids
 
-# for pmid,name in zip(pmids,names):
-#     print ("Trying to fetch pmid {0}".format(pmid))
-#     retriesSoFar=0
-#     while retriesSoFar<args['maxRetries']:
-#         try:
-#             soup=fetch(pmid,finders,name,headers)
-#             retriesSoFar=args['maxRetries']
-#         except requests.ConnectionError as e:
-#             if '104' in str(e):
-#                 retriesSoFar+=1
-#                 if retriesSoFar<args['maxRetries']:
-#                     print "** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e)
+# with open(args['errors'],'w+') as errorPmids:
+#     for pmid,name in zip(pmids,names):
+#         print ("Trying to fetch pmid {0}".format(pmid))
+#         retriesSoFar=0
+#         while retriesSoFar<args['maxRetries']:
+#             try:
+#                 soup=fetch(pmid,finders,name,headers,errorPmids)
+#                 retriesSoFar=args['maxRetries']
+#             except requests.ConnectionError as e:
+#                 if '104' in str(e):
+#                     retriesSoFar+=1
+#                     if retriesSoFar<args['maxRetries']:
+#                         print "** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e)
+#                     else:
+#                         print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
 #                 else:
 #                     print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
-#             else:
+#                     retriesSoFar=args['maxRetries']
+#             except Exception as e:
 #                 print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
 #                 retriesSoFar=args['maxRetries']
-#         except Exception as e:
-#             print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
-#             retriesSoFar=args['maxRetries']
 
 
