@@ -2,19 +2,27 @@
 
 Batch download articles based on PMID (Pubmed ID)
 
-Version 2.5.2  Last update: 11/19/2018.
+Version 3.0.0  Last update: 11/19/2018.
 
 ## Required Packages
 
-The program is written for python 2.7.  It uses the following non-default packages:
+As of version 3.0.0, the program is written for python 3.7.  It uses the following non-default packages:
 ```
 requests
-BeautifulSoup
+requests3
+beautifulsoup4
+lxml
 ```
 
-Optionally, instead of installing these yourself, the included "pubmed-batch-download.yml" file an be used with anaconda to install an environment that has versions of packages and python known to work with this program.  It can be installed via
+Optionally, instead of installing these yourself, the included "pubmed-batch-downloader-py3.yml" file can be used with anaconda to install an environment that has versions of packages and python known to work with this program.  It can be installed via
 ```
-conda env create -f pubmed-batch-download.yml
+conda env create -f pubmed-batch-downloader-py3.yml
+```
+
+Then, activate the environment with
+
+```
+source activate pubmed-batch-downloader-py3
 ```
 
 ## Program Usage
