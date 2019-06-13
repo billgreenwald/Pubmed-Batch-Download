@@ -3,7 +3,7 @@
 
 # # Imports and command line arguments
 
-# In[2]:
+# In[1]:
 
 
 import argparse
@@ -23,7 +23,7 @@ parser.add_argument('-maxRetries',help="Change max number of retries per article
 args = vars(parser.parse_args())
 
 
-# In[7]:
+# In[47]:
 
 
 #debugging
@@ -33,7 +33,7 @@ args = vars(parser.parse_args())
 #Oxford Academics -- 26030325
 #Future Medicine -- 28589772
  
-# args={'pmids':'27782767',
+# args={'pmids':'26030325',
 #       'pmf':'%#$',
 #       'out':'fetched_pdfs',
 #       'maxRetries':3,
@@ -41,21 +41,21 @@ args = vars(parser.parse_args())
 #       }
 
 
-# In[4]:
+# In[3]:
 
 
 if len(sys.argv)==1:
     parser.print_help(sys.stderr)
     exit(1)
 if args['pmids']=='%#$' and args['pmf']=='%#$':
-    print "Error: Either -pmids or -pmf must be used.  Exiting."
+    print ("Error: Either -pmids or -pmf must be used.  Exiting.")
     exit(1)
 if args['pmids']!='%#$' and args['pmf']!='%#$':
-    print "Error: -pmids and -pmf cannot be used together.  Ignoring -pmf argument"
+    print ("Error: -pmids and -pmf cannot be used together.  Ignoring -pmf argument")
     args['pmf']='%#$'
 
 
-# In[5]:
+# In[74]:
 
 
 import sys
@@ -66,11 +66,11 @@ import re
 import urllib
 
 
-# In[6]:
+# In[5]:
 
 
 if not os.path.exists(args['out']):
-    print "Output directory of {0} did not exist.  Created the directory.".format(args['out'])
+    print( "Output directory of {0} did not exist.  Created the directory.".format(args['out']))
     os.mkdir(args['out'])
 
 
@@ -78,14 +78,14 @@ if not os.path.exists(args['out']):
 
 # # Functions
 
-# In[8]:
+# In[6]:
 
 
 def getMainUrl(url):
     return "/".join(url.split("/")[:3])
 
 
-# In[25]:
+# In[7]:
 
 
 def savePdfFromUrl(pdfUrl,directory,name,headers):
@@ -94,7 +94,7 @@ def savePdfFromUrl(pdfUrl,directory,name,headers):
         f.write(t.content)
 
 
-# In[63]:
+# In[45]:
 
 
 def fetch(pmid,finders,name,headers,errorPmids):
@@ -103,13 +103,13 @@ def fetch(pmid,finders,name,headers,errorPmids):
     success = False
     dontTry=False
     if os.path.exists("{0}/{1}.pdf".format(args['out'],pmid)): # bypass finders if pdf reprint already stored locally
-        print "** Reprint #{0} already downloaded and in folder; skipping.".format(pmid)
+        print ("** Reprint #{0} already downloaded and in folder; skipping.".format(pmid))
         return
     else:
         #first, download the html from the page that is on the other side of the pubmed API
         req=requests.get(uri,headers=headers)
         if 'ovid' in req.url:
-            print " ** Reprint {0} cannot be fetched as ovid is not supported by the requests package.".format(pmid)
+            print (" ** Reprint {0} cannot be fetched as ovid is not supported by the requests package.".format(pmid))
             errorPmids.write("{}\t{}\n".format(pmid,name))
             dontTry=True
             success=True
@@ -118,89 +118,89 @@ def fetch(pmid,finders,name,headers,errorPmids):
         # loop through all finders until it finds one that return the pdf reprint
         if not dontTry:
             for finder in finders:
-                print "Trying {0}".format(finder)
+                print ("Trying {0}".format(finder))
                 pdfUrl = eval(finder)(req,soup,headers)
                 if type(pdfUrl)!=type(None):
                     savePdfFromUrl(pdfUrl,args['out'],name,headers)
                     success = True
-                    print "** fetching of reprint {0} succeeded".format(pmid)
+                    print ("** fetching of reprint {0} succeeded".format(pmid))
                     break
        
         if not success:
-            print "** Reprint {0} could not be fetched with the current finders.".format(pmid)
+            print ("** Reprint {0} could not be fetched with the current finders.".format(pmid))
             errorPmids.write("{}\t{}\n".format(pmid,name))
 
 
 # # Finders
 
-# In[11]:
+# In[9]:
 
 
 def acsPublications(req,soup,headers):
     possibleLinks=[x for x in soup.find_all('a') if type(x.get('title'))==str and ('high-res pdf' in x.get('title').lower() or 'low-res pdf' in x.get('title').lower())]
     
     if len(possibleLinks)>0:
-        print "** fetching reprint using the 'acsPublications' finder..."
+        print ("** fetching reprint using the 'acsPublications' finder...")
         pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
         return pdfUrl
     
     return None
 
 
-# In[12]:
+# In[10]:
 
 
 def direct_pdf_link(req,soup,headers): #if anyone has a PMID that direct links, I can debug this better
     
     if req.content[-4:]=='.pdf':
-        print "** fetching reprint using the 'direct pdf link' finder..."
+        print ("** fetching reprint using the 'direct pdf link' finder...")
         pdfUrl=req.content
         return pdfUrl
     
     return None
 
 
-# In[13]:
+# In[11]:
 
 
 def futureMedicine(req,soup,headers):
     possibleLinks=soup.find_all('a',attrs={'href':re.compile("/doi/pdf")})
     if len(possibleLinks)>0:
-        print "** fetching reprint using the 'future medicine' finder..."
+        print ("** fetching reprint using the 'future medicine' finder...")
         pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
         return pdfUrl
     return None
 
 
-# In[14]:
+# In[12]:
 
 
 def genericCitationLabelled(req,soup,headers): #if anyone has CSH access, I can check this.  Also, a PMID on CSH would help debugging
     
     possibleLinks=soup.find_all('meta',attrs={'name':'citation_pdf_url'})
     if len(possibleLinks)>0:
-        print "** fetching reprint using the 'generic citation labelled' finder..."
+        print ("** fetching reprint using the 'generic citation labelled' finder...")
         pdfUrl=possibleLinks[0].get('content')
         return pdfUrl
     return None
     
 
 
-# In[15]:
+# In[13]:
 
 
 def nejm(req,soup,headers):
     possibleLinks=[x for x in soup.find_all('a') if type(x.get('data-download-type'))==str and (x.get('data-download-type').lower()=='article pdf')]
         
     if len(possibleLinks)>0:
-        print "** fetching reprint using the 'NEJM' finder..."
+        print ("** fetching reprint using the 'NEJM' finder...")
         pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
         return pdfUrl
     
     return None
 
 
-# In[16]:
+# In[14]:
 
 
 def pubmed_central_v1(req,soup,headers):
@@ -209,32 +209,32 @@ def pubmed_central_v1(req,soup,headers):
     possibleLinks=[x for x in possibleLinks if 'epdf' not in x.get('title').lower()] #this allows the pubmed_central finder to also work for wiley
     
     if len(possibleLinks)>0:
-        print "** fetching reprint using the 'pubmed central' finder..."
+        print ("** fetching reprint using the 'pubmed central' finder...")
         pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
         return pdfUrl
     
     return None
 
 
-# In[17]:
+# In[15]:
 
 
 def pubmed_central_v2(req,soup,headers):
     possibleLinks=soup.find_all('a',attrs={'href':re.compile('/pmc/articles')})
         
     if len(possibleLinks)>0:
-        print "** fetching reprint using the 'pubmed central' finder..."
+        print ("** fetching reprint using the 'pubmed central' finder...")
         pdfUrl="https://www.ncbi.nlm.nih.gov/{}".format(possibleLinks[0].get('href'))
         return pdfUrl
     
     return None
 
 
-# In[62]:
+# In[16]:
 
 
 def science_direct(req,soup,headers):
-    newUri=urllib.unquote(soup.find_all('input')[0].get('value'))
+    newUri=urllib.parse.unquote(soup.find_all('input')[0].get('value'))
     req=requests.get(newUri,allow_redirects=True,headers=headers)
     soup=BeautifulSoup(req.content,'lxml')
 
@@ -243,7 +243,7 @@ def science_direct(req,soup,headers):
     
     
     if len(possibleLinks)>0:
-        print "** fetching reprint using the 'science_direct' finder..."
+        print ("** fetching reprint using the 'science_direct' finder...")
         req=requests.get(possibleLinks[0].get('content'),headers=headers)
         soup=BeautifulSoup(req.content,'lxml')
         pdfUrl=soup.find_all('a')[0].get('href')
@@ -251,13 +251,13 @@ def science_direct(req,soup,headers):
     return None
 
 
-# In[19]:
+# In[17]:
 
 
 def uchicagoPress(req,soup,headers):
     possibleLinks=[x for x in soup.find_all('a') if type(x.get('href'))==str and 'pdf' in x.get('href') and '.edu/doi/' in x.get('href')]    
     if len(possibleLinks)>0:
-        print "** fetching reprint using the 'uchicagoPress' finder..."
+        print ("** fetching reprint using the 'uchicagoPress' finder...")
         pdfUrl=getMainUrl(req.url)+possibleLinks[0].get('href')
         return pdfUrl
     
@@ -266,7 +266,7 @@ def uchicagoPress(req,soup,headers):
 
 # # Main
 
-# In[20]:
+# In[18]:
 
 
 finders=[
@@ -281,7 +281,7 @@ finders=[
 ]
 
 
-# In[48]:
+# In[41]:
 
 
 headers = requests.utils.default_headers()
@@ -311,16 +311,16 @@ with open(args['errors'],'w+') as errorPmids:
                 if '104' in str(e) or 'BadStatusLine' in str(e):
                     retriesSoFar+=1
                     if retriesSoFar<args['maxRetries']:
-                        print "** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e)
+                        print ("** fetching of reprint {0} failed from error {1}, retrying".format(pmid,e))
                     else:
-                        print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
+                        print ("** fetching of reprint {0} failed from error {1}".format(pmid,e))
                         errorPmids.write("{}\t{}\n".format(pmid,name))
                 else:
-                    print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
+                    print ("** fetching of reprint {0} failed from error {1}".format(pmid,e))
                     retriesSoFar=args['maxRetries']
                     errorPmids.write("{}\t{}\n".format(pmid,name))
             except Exception as e:
-                print "** fetching of reprint {0} failed from error {1}".format(pmid,e)
+                print ("** fetching of reprint {0} failed from error {1}".format(pmid,e))
                 retriesSoFar=args['maxRetries']
                 errorPmids.write("{}\t{}\n".format(pmid,name))
 

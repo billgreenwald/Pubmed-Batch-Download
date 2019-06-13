@@ -1,0 +1,33 @@
+name: pubmed-batch-downloader-py3
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - asn1crypto=0.24.0=py37_1003
+  - bzip2=1.0.6=h14c3975_1002
+  - ca-certificates=2019.3.9=hecc5488_0
+  - certifi=2019.3.9=py37_0
+  - cffi=1.12.3=py37h8022711_0
+  - chardet=3.0.4=py37_1003
+  - cryptography=2.7=py37h72c5cf5_0
+  - idna=2.8=py37_1000
+  - libffi=3.2.1=he1b5a44_1006
+  - ncurses=6.1=hf484d3e_1002
+  - openssl=1.1.1b=h14c3975_1
+  - pip=19.1.1=py37_0
+  - pycparser=2.19=py37_1
+  - pyopenssl=19.0.0=py37_0
+  - pysocks=1.7.0=py37_0
+  - python=3.7.3=h5b0a415_0
+  - readline=7.0=hf8c457e_1001
+  - requests=2.22.0=py37_0
+  - setuptools=41.0.1=py37_0
+  - six=1.12.0=py37_1000
+  - sqlite=3.28.0=h8b20d00_0
+  - tk=8.6.9=hed695b0_1002
+  - urllib3=1.24.3=py37_0
+  - wheel=0.33.4=py37_0
+  - xz=5.2.4=h14c3975_1001
+  - zlib=1.2.11=h14c3975_1004
+  - libgcc-ng=9.1.0=hdf63c60_0
+  - libstdcxx-ng=9.1.0=hdf63c60_0
