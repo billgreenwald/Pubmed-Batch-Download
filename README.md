@@ -22,7 +22,7 @@ conda env create -f pubmed-batch-downloader-py3.yml
 Then, activate the environment with
 
 ```
-source activate pubmed-batch-downloader-py3
+conda activate pubmed-batch-downloader-py3
 ```
 
 ## Program Usage
