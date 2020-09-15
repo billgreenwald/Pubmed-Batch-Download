@@ -14,15 +14,24 @@ beautifulsoup4
 lxml
 ```
 
-Optionally, instead of installing these yourself, the included "pubmed-batch-downloader-py3.yml" file can be used with anaconda to install an environment that has versions of packages and python known to work with this program.  It can be installed via
+Optionally, instead of installing these yourself, the included "pubmed-batch-downloader-py3.yml" file can be used with anaconda to install an environment that has versions of packages and python known to work with this program.  It can be on linux installed via
 ```
 conda env create -f pubmed-batch-downloader-py3.yml
+```
+or on windows via 
+```
+conda env create -f pubmed-batch-downloader-py3-windows.yml
 ```
 
 Then, activate the environment with
 
 ```
 conda activate pubmed-batch-downloader-py3
+```
+If you use the windows environment, you will then need to run the following commands in order to install the other packages, as I cannot get the yml to work when they are included.
+```
+conda install requests beautifulsoup4 lxml
+conda install requests3
 ```
 
 ## Program Usage
