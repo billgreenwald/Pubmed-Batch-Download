@@ -1,6 +1,6 @@
 # Pubmed-Batch-Download
 
-Batch download articles based on PMID (Pubmed ID)
+Batch download articles based on PMID (Pubmed ID).  This project is not being updated anymore; I no longer have access to paywall journals.  If someone would like to pick up support in full, go ahead and fork.  Otherwise, I contributions will have to be made by others and I can merge in PRs
 
 Version 3.0.0  Last update: 9/15/2020.
 
